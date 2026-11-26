@@ -399,9 +399,8 @@ function wireForm() {
   };
 }
 // ---------------- New search (submits a request to the owner's webhook) ----------------
-const TC = Object.assign({ SUBMIT_WEBHOOK_URL: 'SUBMIT_WEBHOOK_URL', SUBMIT_MODE: 'no-cors', RESULTS_ETA: '~30-60 min' }, window.TRACKER_CONFIG || {});
+const TC = Object.assign({ SUBMIT_EMAIL: 'borealsauce-t0vm8s+carsearch@mail.grokbot.com', RESULTS_ETA: '~30-60 min' }, window.TRACKER_CONFIG || {});
 let REQS = [];
-const hookReady = () => /^(https:\/\/|http:\/\/localhost)/.test(TC.SUBMIT_WEBHOOK_URL || '');
 const kwList = s => String(s || '').split(',').map(x => x.trim()).filter(Boolean).slice(0, 20);
 function nsPayload() {
   const f = new FormData($('#nsForm')); const g = k => String(f.get(k) || '').trim(); const n = k => g(k) === '' ? null : Number(g(k));
@@ -423,7 +422,7 @@ function renderPending() {
   const ids = new Set(DATA.searches.map(s => s.config.id));
   const rows = mine.map(m => Object.assign({}, m, srv[m.request_id] || {}))
     .concat(REQS.filter(r => !mine.some(m => m.request_id === r.request_id) && ['queued', 'running'].includes(r.status)));
-  const lbl = { submitted: 'Submitted, waiting for pickup', queued: 'Queued', running: 'Searching sites now', done: 'Done', rejected: 'Rejected', error: 'Error' };
+  const lbl = { sent: `Sent - results usually appear within ${TC.RESULTS_ETA}`, submitted: 'Submitted, waiting for pickup', queued: 'Queued', running: 'Searching sites now', done: 'Done', rejected: 'Rejected', error: 'Error' };
   $('#nsPending').innerHTML = rows.length ? rows.slice().reverse().map(r => {
     const done = r.status === 'done' && r.search_id && ids.has(r.search_id);
     return `<div class="pend"><b>${esc(r.name)}</b><div class="small">${esc(lbl[r.status] || r.status || 'Submitted')} · ${esc(new Date(r.submitted_at).toLocaleString())}</div>
@@ -432,25 +431,28 @@ function renderPending() {
   $('#nsPending').querySelectorAll('[data-go]').forEach(b => b.onclick = () => { cur = b.dataset.go; LS.set('tab', cur); renderAll(); window.scrollTo(0, 0); });
 }
 function nsMsg(html, kind) { const m = $('#nsMsg'); m.hidden = false; m.className = 'ns-msg ' + (kind || ''); m.innerHTML = html; }
-async function nsSubmit(e) {
+function nsSubmit(e) {
   e.preventDefault();
   const p = nsPayload(); const S = p.search;
   if (S.year_min && S.year_max && S.year_min > S.year_max) return nsMsg('"Year from" is after "Year to".', 'bad');
   if (S.min_price && S.max_price && S.min_price > S.max_price) return nsMsg('Min price is above max price.', 'bad');
-  if (!hookReady()) return nsMsg(`Searches can't be submitted from this page yet. Copy this request and send it to whoever shared the link:<pre class="cfg">${esc(JSON.stringify(Object.assign({}, p, { access_code: '••••' }), null, 2))}</pre>`, 'bad');
-  $('#nsGo').disabled = true; $('#nsGo').textContent = 'Submitting…';
-  try {
-    const opt = { method: 'POST', body: JSON.stringify(p) };
-    if (TC.SUBMIT_MODE === 'cors') { opt.mode = 'cors'; opt.headers = { 'Content-Type': 'application/json' }; }
-    else { opt.mode = 'no-cors'; opt.headers = { 'Content-Type': 'text/plain;charset=UTF-8' }; }
-    const res = await fetch(TC.SUBMIT_WEBHOOK_URL, opt);
-    if (TC.SUBMIT_MODE === 'cors' && !res.ok) throw new Error('HTTP ' + res.status);
-    const mine = LS.get('myRequests', []); mine.push({ request_id: p.request_id, name: S.name, submitted_at: p.submitted_at, status: 'submitted' });
-    LS.set('myRequests', mine.slice(-20));
-    nsMsg(`<b>Search submitted.</b> Results usually appear within ${esc(TC.RESULTS_ETA)} as a new tab called “${esc(S.name)}”. Check back here; it's listed under Pending searches.`, 'good');
-    renderPending();
-  } catch (err) { nsMsg('Could not submit: ' + esc(err.message) + '. Try again in a minute.', 'bad'); }
-  finally { $('#nsGo').disabled = false; $('#nsGo').textContent = 'Search'; }
+  const json = JSON.stringify(p);
+  const subject = 'Car search request: ' + S.name;
+  const body = 'Just press Send.\n\n' + json + '\n';
+  const href = `mailto:${TC.SUBMIT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const mine = LS.get('myRequests', []); mine.push({ request_id: p.request_id, name: S.name, submitted_at: p.submitted_at, status: 'sent' });
+  LS.set('myRequests', mine.slice(-20));
+  nsMsg(`<b>Your email app should open with the request filled in. Just press Send.</b> Results usually appear within ${esc(TC.RESULTS_ETA)} as a new tab called “${esc(S.name)}”.
+    <div class="fallback">Email app didn't open? Send this to <b><span id="nsAddr">${esc(TC.SUBMIT_EMAIL)}</span></b> <button type="button" class="btn ghost sm" id="nsCopyAddr">Copy address</button>
+    with the subject <code>${esc(subject)}</code> and the request below as the message:
+    <div class="ns-actions"><button type="button" class="btn sm" id="nsCopy">Copy request</button> <a class="btn ghost sm" href="${esc(href)}">Open email again</a></div>
+    <pre class="cfg" id="nsJson">${esc(json)}</pre></div>`, 'good');
+  const copy = (txt, btn, lbl) => { (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => { btn.textContent = 'Copied'; setTimeout(() => btn.textContent = lbl, 1500); })
+    .catch(() => { const r = document.createRange(); r.selectNodeContents($('#nsJson')); getSelection().removeAllRanges(); getSelection().addRange(r); }); };
+  $('#nsCopy').onclick = () => copy(json, $('#nsCopy'), 'Copy request');
+  $('#nsCopyAddr').onclick = () => copy(TC.SUBMIT_EMAIL, $('#nsCopyAddr'), 'Copy address');
+  renderPending();
+  window.location.href = href;
 }
 function wireNewSearch() {
   document.querySelectorAll('.eta').forEach(x => x.textContent = TC.RESULTS_ETA);

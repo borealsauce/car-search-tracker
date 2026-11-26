@@ -123,3 +123,4 @@ code{color:#a5f3fc}
 .ns-msg{margin-top:12px;padding:10px;border-radius:8px;border:1px solid var(--line)}.ns-msg.good{border-color:#065f46;color:#a7f3d0}.ns-msg.bad{border-color:#92400e;color:#fde68a}
 .ns-side h3{margin:0 0 8px}.pend{border-bottom:1px solid var(--line);padding:8px 0}.btn.sm{padding:3px 10px;font-size:12px;margin-top:4px}
 .btn.big{background:var(--cyan2);border-color:var(--cyan);color:#fff}.btn.big:hover{background:var(--cyan);color:#0f172a}
+.fallback{margin-top:10px;color:var(--text)}.fallback pre{white-space:pre-wrap;word-break:break-all;max-height:160px;overflow:auto}
