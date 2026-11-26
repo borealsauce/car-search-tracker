@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Car Search Tracker</title>
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 <header class="top">
@@ -20,6 +20,60 @@
 
 <nav class="tabs" id="tabs"></nav>
 <div class="criteria" id="criteria"></div>
+
+<section id="newSearch" class="ns" hidden>
+  <div class="ns-wrap">
+    <form id="nsForm" class="ns-form" autocomplete="off">
+      <h2>New search</h2>
+      <p class="hint">Search every car site at once: AutoTrader, CarMax, Craigslist, a nationwide dealer feed (Carvana, AutoNation and franchise dealers), duPont Registry, Bring a Trailer, plus Facebook Marketplace, OfferUp, eBay Motors and Cars &amp; Bids. Sale-pending, sold, accident and branded-title cars are left out.</p>
+      <div class="ns-grid">
+        <fieldset><legend>Vehicle</legend>
+          <label>Make <input name="make" required maxlength="40" placeholder="e.g. Rivian"></label>
+          <label>Model <input name="model" required maxlength="40" placeholder="e.g. R1S"></label>
+          <div class="pair"><label>Year from <input name="year_min" type="number" min="1950" max="2028" placeholder="Any"></label>
+            <label>Year to <input name="year_max" type="number" min="1950" max="2028" placeholder="Any"></label></div>
+        </fieldset>
+        <fieldset><legend>Price &amp; miles</legend>
+          <div class="pair"><label>Min price <input name="min_price" type="number" min="0" step="500" placeholder="No min"></label>
+            <label>Max price <input name="max_price" type="number" min="0" step="500" placeholder="No max"></label></div>
+          <label>Max miles <input name="max_miles" type="number" min="0" step="1000" placeholder="Any"></label>
+        </fieldset>
+        <fieldset><legend>Location</legend>
+          <label>Search area <select name="radius">
+            <option value="0">Nationwide</option><option value="50">Within 50 mi of 92009</option><option value="100">Within 100 mi</option>
+            <option value="250">Within 250 mi</option><option value="500">Within 500 mi</option><option value="1000">Within 1,000 mi</option></select></label>
+        </fieldset>
+        <fieldset><legend>Drivetrain</legend>
+          <div class="chips"><label class="chip"><input type="checkbox" name="drivetrain_allow" value="AWD"> AWD</label><label class="chip"><input type="checkbox" name="drivetrain_allow" value="4WD"> 4WD</label><label class="chip"><input type="checkbox" name="drivetrain_allow" value="FWD"> FWD</label><label class="chip"><input type="checkbox" name="drivetrain_allow" value="RWD"> RWD</label></div>
+          <p class="hint">Leave all unticked for any drivetrain.</p>
+        </fieldset>
+        <fieldset class="wide"><legend>Trim keywords</legend>
+          <div class="pair"><label>Must mention (any) <input name="include_keywords" maxlength="300" placeholder="e.g. Launch Edition, Adventure"></label>
+            <label>Exclude <input name="exclude_keywords" maxlength="300" placeholder="e.g. Dual Standard, salvage"></label></div>
+        </fieldset>
+        <fieldset class="wide"><legend>Trim classes <span class="small">(optional)</span></legend>
+          <textarea name="trim_classes" rows="3" maxlength="1500" placeholder="One per line: Class name: keyword, keyword&#10;Quad Motor: quad, quad-motor&#10;Dual Max: dual max, max pack"></textarea>
+          <p class="hint">Each listing gets labeled with the first class whose keywords it mentions; the rest show as Unverified.</p>
+        </fieldset>
+        <fieldset class="wide"><legend>You</legend>
+          <div class="pair"><label>Your name <input name="requester" required maxlength="60" placeholder="First and last"></label>
+            <label>Access code <input name="access_code" required maxlength="80" type="password" placeholder="From whoever shared this link"></label></div>
+          <label>Search name <span class="small">(optional)</span> <input name="name" maxlength="80" placeholder="Auto: make model years"></label>
+        </fieldset>
+      </div>
+      <div class="ns-actions">
+        <button class="btn big" type="submit" id="nsGo">Search</button>
+        <button class="btn ghost" type="reset">Clear</button>
+      </div>
+      <div id="nsMsg" class="ns-msg" hidden></div>
+    </form>
+    <aside class="ns-side">
+      <h3>Pending searches</h3>
+      <div id="nsPending"><span class="small">None yet.</span></div>
+      <p class="hint">Results usually appear within <span class="eta">~30-60 min</span> as a new tab. Facebook Marketplace and OfferUp are searched in a browser pass, so those can take longer.</p>
+    </aside>
+  </div>
+</section>
 
 <main id="board">
   <section class="box" data-box="summary"><h2>Summary</h2><div class="cards" id="cards"></div></section>
@@ -130,6 +184,7 @@
     <p class="hint">Add the entry to <code>searches.json</code> in the tracker folder (or download the full file with it included), then run <code>./refresh.sh</code>. It shows up as a new tab here.</p>
   </section>
 </main>
-<script src="app.js?v=2"></script>
+<script src="config.js?v=1"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>

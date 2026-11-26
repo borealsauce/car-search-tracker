@@ -106,3 +106,20 @@ code{color:#a5f3fc}
 
 .t-tcp{color:#c4b5fd;border-color:#6d28d9}.t-tcb{color:#7dd3fc;border-color:#0369a1}.t-tcu{color:#fbbf24;border-color:#92400e}
 .tcrow{margin-top:4px}.tcev{color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+.tab-new{font-weight:700;border-color:var(--cyan)!important}
+.ns{padding:0 16px 24px}.ns-wrap{display:grid;grid-template-columns:1fr 300px;gap:16px;align-items:start;max-width:1250px}
+@media (max-width:900px){.ns-wrap{grid-template-columns:1fr}}
+.ns-form,.ns-side{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:16px}
+.ns-form h2{margin:0 0 4px}.ns-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+@media (max-width:700px){.ns-grid{grid-template-columns:1fr}}
+.ns-grid fieldset{border:1px solid var(--line);border-radius:8px;padding:10px;margin:0;min-width:0}.ns-grid fieldset.wide{grid-column:1/-1}
+.ns-grid legend{font-weight:600;padding:0 4px}.ns-grid label{display:block;font-size:12px;color:var(--muted);margin-bottom:8px}
+.ns-grid input,.ns-grid select,.ns-grid textarea{display:block;width:100%;box-sizing:border-box;margin-top:3px;padding:8px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:inherit;font:inherit}
+.ns .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ns .chips{display:flex;gap:8px;flex-wrap:wrap}
+.ns .chip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:16px;padding:5px 12px;color:inherit;font-size:13px}
+.ns .chip input{width:auto;display:inline;margin:0}
+.ns-actions{display:flex;gap:10px;margin-top:14px}.btn.big{font-size:17px;padding:12px 40px;font-weight:700}
+.ns-msg{margin-top:12px;padding:10px;border-radius:8px;border:1px solid var(--line)}.ns-msg.good{border-color:#065f46;color:#a7f3d0}.ns-msg.bad{border-color:#92400e;color:#fde68a}
+.ns-side h3{margin:0 0 8px}.pend{border-bottom:1px solid var(--line);padding:8px 0}.btn.sm{padding:3px 10px;font-size:12px;margin-top:4px}
+.btn.big{background:var(--cyan2);border-color:var(--cyan);color:#fff}.btn.big:hover{background:var(--cyan);color:#0f172a}

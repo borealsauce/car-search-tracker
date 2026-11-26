@@ -124,7 +124,7 @@ const histTag = r => { const h = r.history || 'history unverified';
     r.history_bad ? `<span class="tag t-hist" title="${esc(r.history_bad)}">${esc(h)}</span>` :
     `<span class="tag t-unv" title="${esc(h)}">${h.startsWith('title clean') ? 'Clean title · accidents unverified' : 'History unverified'}</span>`; };
 const srcHtml = r => `${esc(r.via || r.source)}${(r.also_on || []).length ? '<div class="small">also: ' + r.also_on.map(a => link(a.url, a.source + (a.price ? ' ' + money(a.price) : ''))).join(', ') + '</div>' : ''}`;
-const driveHtml = r => `${esc(r.variant || r.drivetrain || '?')}<div class="small">${esc(r.drive_basis === 'VIN-confirmed' ? 'confirmed by VIN' : r.drive_basis === 'seller-stated' ? 'seller-stated' : 'not stated')}</div>`;
+const driveHtml = r => `${esc(r.variant || r.drivetrain || '?')}<div class="small">${esc(r.drive_basis === 'VIN-confirmed' ? 'confirmed by VIN' : r.drive_basis === 'VIN-decoded (NHTSA)' ? 'VIN decoded (NHTSA)' : r.drive_basis === 'seller-stated' ? 'seller-stated' : 'not stated')}</div>`;
 const LIST_COLS = [
   { k: 'search', label: 'Search', w: 150, get: r => r._search },
   { k: 'flags', label: 'Flags', w: 110, get: r => (r.bucket === 'maybe' ? 'b' : 'a') + (r.is_new ? 0 : 1), html: r =>
@@ -227,10 +227,10 @@ function wireCards() {
 function searchesFor() { return cur === '__all' ? DATA.searches : DATA.searches.filter(s => s.config.id === cur); }
 function tag(rows, s) { return rows.map(r => Object.assign(r, { _search: s.config.name, _cfg: s.config })); }
 function renderTabs() {
-  const tabs = DATA.searches.map(s => ({ id: s.config.id, name: s.config.name, n: s.summary.matches }));
+  const tabs = [{ id: '__new', name: '＋ New search', n: null }].concat(DATA.searches.map(s => ({ id: s.config.id, name: s.config.name, n: s.summary.matches })));
   if (DATA.searches.length > 1 || true) tabs.push({ id: '__all', name: 'All searches', n: DATA.searches.reduce((a, s) => a + s.summary.matches, 0) });
   if (!tabs.some(t => t.id === cur)) cur = tabs[0].id;
-  $('#tabs').innerHTML = tabs.map(t => `<button class="tab ${t.id === cur ? 'on' : ''}" data-id="${t.id}">${esc(t.name)}<span class="n">${t.n}</span></button>`).join('');
+  $('#tabs').innerHTML = tabs.map(t => `<button class="tab ${t.id === cur ? 'on' : ''}${t.id === '__new' ? ' tab-new' : ''}" data-id="${t.id}">${esc(t.name)}${t.n == null ? '' : `<span class="n">${t.n}</span>`}</button>`).join('');
   $('#tabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { cur = b.dataset.id; LS.set('tab', cur); renderAll(); });
 }
 function critText(S) {
@@ -333,7 +333,7 @@ function cardHtml(r) {
     <a class="ph" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${ph}<div class="ov">${ov}</div></a>
     <div class="bd">
       <div class="ttl">${esc(title)}</div>
-      <div class="trim">${esc(r.variant || r.trim || '')}${r.drive_basis === 'VIN-confirmed' ? ' · VIN-confirmed' : r.drivetrain ? ' · ' + esc(r.drivetrain) + ' (seller-stated)' : ''}</div>
+      <div class="trim">${esc(r.variant || r.trim || '')}${r.drive_basis === 'VIN-confirmed' ? ' · VIN-confirmed' : r.drive_basis === 'VIN-decoded (NHTSA)' ? ' · ' + esc(r.drivetrain) + ' (VIN decoded)' : r.drivetrain ? ' · ' + esc(r.drivetrain) + ' (seller-stated)' : ''}</div>
       <div class="price">${r.price ? money(r.price) : '<span class="small">Call for price</span>'}</div>
       <div class="meta">${r.miles != null ? mi(r.miles) + ' mi' : 'Miles not shown'}${r.title ? ' · ' + esc(r.title) + ' title' : ''}</div>
       <div class="loc">📍 ${esc(loc(r) || 'Location not shown')}${r.distance != null ? ` · ${mi(r.distance)} mi away` : ''}</div>
@@ -356,6 +356,10 @@ function refreshList() {
 }
 function renderAll() {
   renderTabs();
+  const isNew = cur === '__new';
+  $('#newSearch').hidden = !isNew; $('#board').hidden = isNew; $('#criteria').hidden = isNew;
+  if (isNew) { history.replaceState(null, '', '#new'); renderPending(); return; }
+  history.replaceState(null, '', '#search=' + encodeURIComponent(cur));
   const ss = searchesFor();
   $('#criteria').innerHTML = cur === '__all' ? `Showing every saved search together (${ss.length}).` : critText(ss[0].config);
   const showSearchCol = cur === '__all';
@@ -394,9 +398,73 @@ function wireForm() {
     const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(c, null, 2)], { type: 'application/json' })); a.download = 'searches.json'; a.click();
   };
 }
+// ---------------- New search (submits a request to the owner's webhook) ----------------
+const TC = Object.assign({ SUBMIT_WEBHOOK_URL: 'SUBMIT_WEBHOOK_URL', SUBMIT_MODE: 'no-cors', RESULTS_ETA: '~30-60 min' }, window.TRACKER_CONFIG || {});
+let REQS = [];
+const hookReady = () => /^(https:\/\/|http:\/\/localhost)/.test(TC.SUBMIT_WEBHOOK_URL || '');
+const kwList = s => String(s || '').split(',').map(x => x.trim()).filter(Boolean).slice(0, 20);
+function nsPayload() {
+  const f = new FormData($('#nsForm')); const g = k => String(f.get(k) || '').trim(); const n = k => g(k) === '' ? null : Number(g(k));
+  const make = g('make'), model = g('model'), ymin = n('year_min'), ymax = n('year_max');
+  const yrs = ymin && ymax ? ' ' + (ymin === ymax ? ymin : `${ymin}-${ymax}`) : ymin ? ` ${ymin}+` : ymax ? ` up to ${ymax}` : '';
+  const auto = `${make} ${model}${yrs}${n('max_miles') ? ` under ${Math.round(n('max_miles') / 1000)}K mi` : ''}${n('max_price') ? ` under $${Math.round(n('max_price') / 1000)}K` : ''}`.trim();
+  const search = { name: g('name') || auto, make, model, year_min: ymin, year_max: ymax, min_price: n('min_price'), max_price: n('max_price'),
+    max_miles: n('max_miles'), drivetrain_allow: f.getAll('drivetrain_allow'), include_keywords: kwList(g('include_keywords')),
+    exclude_keywords: kwList(g('exclude_keywords')).map(s => s.toLowerCase()), radius: n('radius') || 0 };
+  if (g('trim_classes')) search.trim_classifier = { default: 'Unverified', hint: 'check listing photos / window sticker',
+    classes: g('trim_classes').split('\n').map(l => l.split(':')).filter(p => p.length > 1 && p[0].trim()).slice(0, 8)
+      .map(p => ({ name: p[0].trim().slice(0, 40), keywords: kwList(p.slice(1).join(':')).map(s => s.toLowerCase()) })) };
+  const rid = 'req-' + new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14) + '-' + Math.random().toString(36).slice(2, 8);
+  return { type: 'car_search_request', version: 1, request_id: rid, submitted_at: new Date().toISOString(),
+    requester: g('requester'), access_code: g('access_code'), search, page: location.origin + location.pathname };
+}
+function renderPending() {
+  const mine = LS.get('myRequests', []); const srv = {}; REQS.forEach(r => srv[r.request_id] = r);
+  const ids = new Set(DATA.searches.map(s => s.config.id));
+  const rows = mine.map(m => Object.assign({}, m, srv[m.request_id] || {}))
+    .concat(REQS.filter(r => !mine.some(m => m.request_id === r.request_id) && ['queued', 'running'].includes(r.status)));
+  const lbl = { submitted: 'Submitted, waiting for pickup', queued: 'Queued', running: 'Searching sites now', done: 'Done', rejected: 'Rejected', error: 'Error' };
+  $('#nsPending').innerHTML = rows.length ? rows.slice().reverse().map(r => {
+    const done = r.status === 'done' && r.search_id && ids.has(r.search_id);
+    return `<div class="pend"><b>${esc(r.name)}</b><div class="small">${esc(lbl[r.status] || r.status || 'Submitted')} · ${esc(new Date(r.submitted_at).toLocaleString())}</div>
+      ${r.message ? `<div class="small">${esc(r.message)}</div>` : ''}${done ? `<button class="btn ghost sm" data-go="${esc(r.search_id)}">View results</button>` : ''}</div>`;
+  }).join('') : '<span class="small">None yet.</span>';
+  $('#nsPending').querySelectorAll('[data-go]').forEach(b => b.onclick = () => { cur = b.dataset.go; LS.set('tab', cur); renderAll(); window.scrollTo(0, 0); });
+}
+function nsMsg(html, kind) { const m = $('#nsMsg'); m.hidden = false; m.className = 'ns-msg ' + (kind || ''); m.innerHTML = html; }
+async function nsSubmit(e) {
+  e.preventDefault();
+  const p = nsPayload(); const S = p.search;
+  if (S.year_min && S.year_max && S.year_min > S.year_max) return nsMsg('"Year from" is after "Year to".', 'bad');
+  if (S.min_price && S.max_price && S.min_price > S.max_price) return nsMsg('Min price is above max price.', 'bad');
+  if (!hookReady()) return nsMsg(`Searches can't be submitted from this page yet. Copy this request and send it to whoever shared the link:<pre class="cfg">${esc(JSON.stringify(Object.assign({}, p, { access_code: '••••' }), null, 2))}</pre>`, 'bad');
+  $('#nsGo').disabled = true; $('#nsGo').textContent = 'Submitting…';
+  try {
+    const opt = { method: 'POST', body: JSON.stringify(p) };
+    if (TC.SUBMIT_MODE === 'cors') { opt.mode = 'cors'; opt.headers = { 'Content-Type': 'application/json' }; }
+    else { opt.mode = 'no-cors'; opt.headers = { 'Content-Type': 'text/plain;charset=UTF-8' }; }
+    const res = await fetch(TC.SUBMIT_WEBHOOK_URL, opt);
+    if (TC.SUBMIT_MODE === 'cors' && !res.ok) throw new Error('HTTP ' + res.status);
+    const mine = LS.get('myRequests', []); mine.push({ request_id: p.request_id, name: S.name, submitted_at: p.submitted_at, status: 'submitted' });
+    LS.set('myRequests', mine.slice(-20));
+    nsMsg(`<b>Search submitted.</b> Results usually appear within ${esc(TC.RESULTS_ETA)} as a new tab called “${esc(S.name)}”. Check back here; it's listed under Pending searches.`, 'good');
+    renderPending();
+  } catch (err) { nsMsg('Could not submit: ' + esc(err.message) + '. Try again in a minute.', 'bad'); }
+  finally { $('#nsGo').disabled = false; $('#nsGo').textContent = 'Search'; }
+}
+function wireNewSearch() {
+  document.querySelectorAll('.eta').forEach(x => x.textContent = TC.RESULTS_ETA);
+  $('#nsForm').addEventListener('submit', nsSubmit);
+  $('#nsForm').addEventListener('reset', () => { $('#nsMsg').hidden = true; });
+  const rq = LS.get('requester', ''); if (rq) $('#nsForm').requester.value = rq;
+  $('#nsForm').requester.addEventListener('change', e => LS.set('requester', e.target.value));
+}
 async function init() {
   const v = Date.now();
   [DATA, CFG] = await Promise.all([fetch('data/data.json?v=' + v).then(r => r.json()), fetch('data/searches.json?v=' + v).then(r => r.json())]);
+  REQS = await fetch('data/requests.json?v=' + v).then(r => r.ok ? r.json() : []).catch(() => []);
+  const hm = location.hash.match(/^#(?:new|search=(.+))$/); if (hm) cur = hm[1] ? decodeURIComponent(hm[1]) : '__new';
+  else if (cur == null) cur = '__new';
   $('#asof').textContent = `Last refresh ${DATA.generated} · distances from ${DATA.home}`;
   makeTable('list', $('#tList'), LIST_COLS); makeTable('ex', $('#tEx'), EX_COLS); makeTable('src', $('#tSrc'), SRC_COLS); makeTable('comps', $('#tComps'), COMP_COLS);
   $('#sortSel').value = LS.get('sortSel', 'price_asc');
@@ -411,7 +479,8 @@ async function init() {
   $('#clearSorts').onclick = () => { Object.values(TABLES).forEach(t => { t.sorts = []; t.saveSort(); renderTable(t); }); renderSortBar(); };
   $('#exportCsv').onclick = exportCsv;
   $('#resetLayout').onclick = () => { LS.del('layout'); LS.del('cards'); Object.keys(TABLES).forEach(id => LS.del('tbl.' + id)); location.reload(); };
-  applyLayout(); wireBoxes(); wireForm(); renderAll();
+  applyLayout(); wireBoxes(); wireForm(); wireNewSearch(); renderAll();
+  setInterval(async () => { if (cur !== '__new') return; REQS = await fetch('data/requests.json?v=' + Date.now()).then(r => r.ok ? r.json() : REQS).catch(() => REQS); renderPending(); }, 60000);
 }
 init().catch(e => { document.body.insertAdjacentHTML('beforeend', `<p style="padding:20px;color:#f87171">Could not load data: ${esc(e.message)}</p>`); });
 })();
