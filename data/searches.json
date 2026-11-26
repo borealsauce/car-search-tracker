@@ -36,7 +36,77 @@
       ],
       "slugs": {},
       "private_grid": null,
-      "notes": "min_price = suspect-price floor: anything listed below it is treated as a placeholder/deposit/scam and excluded."
+      "notes": "min_price = suspect-price floor: anything listed below it is treated as a placeholder/deposit/scam and excluded.",
+      "trim_classifier": {
+        "default": "Unverified",
+        "hint": "check interior photos (leather = Premium)",
+        "classes": [
+          {
+            "name": "Premium AWD",
+            "keywords": [
+              "premium",
+              "foundation series",
+              "vegan leather",
+              "leather seats",
+              "full leather",
+              "leather",
+              "ventilated",
+              "rear display",
+              "rear touchscreen",
+              "rear screen",
+              "9.4-inch",
+              "9.4 inch"
+            ],
+            "year_rule": {
+              "years": [
+                2024,
+                2025
+              ],
+              "drivetrain": [
+                "AWD",
+                "4WD"
+              ],
+              "why": "model year {year} AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level"
+            },
+            "strong_keywords": [
+              "premium awd",
+              "full leather",
+              "vegan leather",
+              "foundation series",
+              "ventilated"
+            ]
+          },
+          {
+            "name": "Base (Dual Motor) AWD",
+            "keywords": [
+              "textile",
+              "cloth seats",
+              "cloth",
+              "base model",
+              "base trim",
+              "standard interior",
+              "non-premium"
+            ],
+            "price_rule": {
+              "years": [
+                2026
+              ],
+              "drivetrain": [
+                "AWD",
+                "4WD"
+              ],
+              "max_price": 88000,
+              "why": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)"
+            },
+            "strong_keywords": [
+              "textile seats",
+              "textile",
+              "base dual motor"
+            ]
+          }
+        ],
+        "notes": "Order of trust: structured trim field from the dealer feed > listing title/description > dealer page feature list > model-year rule > price rule. 'Tactical Grey D\u00e9cor' is NOT a cue (seen on Premium AWD trucks). Some dealer templates (e.g. J&S AutoHaus) list 'Cloth Seats' even on leather trucks, so page-only cues are medium confidence."
+      }
     }
   ],
   "private_grid": {

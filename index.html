@@ -35,7 +35,8 @@
         <div class="fgroup"><label>Price</label><div class="pair"><input id="fPriceMin" type="number" placeholder="Min $"><span>to</span><input id="fPriceMax" type="number" placeholder="Max $"></div></div>
         <div class="fgroup"><label>Mileage</label><select id="fMiles"><option value="">Any</option><option>1000</option><option>2500</option><option>5000</option><option>7500</option><option>10000</option><option>15000</option><option>25000</option><option>50000</option></select></div>
         <div class="fgroup"><label>Distance from 92009</label><select id="fDist"><option value="">Nationwide</option><option>100</option><option>250</option><option>500</option><option>1000</option><option>1500</option><option>2000</option></select></div>
-        <div class="fgroup"><label>Trim</label><div class="checks" id="fTrim"></div></div>
+        <div class="fgroup" id="fTClassGrp"><label>Trim class <span class="small" title="Classified from the listing text, dealer page and model year using the search's trim rules. Hover a badge to see the evidence.">ⓘ</span></label><div class="checks" id="fTClass"></div></div>
+        <div class="fgroup"><label>Trim (as listed)</label><div class="checks" id="fTrim"></div></div>
         <div class="fgroup"><label>Drivetrain</label><div class="checks" id="fDrive"></div></div>
         <div class="fgroup"><label>Source</label><div class="checks" id="fSource"></div></div>
         <div class="fgroup"><label>Seller type</label><div class="checks" id="fSeller"></div></div>
@@ -116,6 +117,9 @@
       <label>Radius (mi, 0 = nationwide) <input name="radius" type="number" value="0"></label>
       <label>Craigslist query <input name="craigslist_query" placeholder="defaults to make + model"></label>
       <label>Listing title must contain (any) <input name="title_must_contain" placeholder="lightning"></label>
+      <label style="grid-column:1/-1">Trim classes (optional, one per line: <code>Class name: keyword, keyword</code>)
+        <textarea name="trim_classes" rows="3" placeholder="Platinum: platinum, massaging seats, max recline&#10;Lariat: lariat&#10;XLT: xlt"></textarea></label>
+      <label style="grid-column:1/-1">Unverified hint <input name="trim_hint" placeholder="e.g. check interior photos (leather = Premium)"></label>
       <div class="form-actions">
         <button class="btn" type="submit">Generate config entry</button>
         <button class="btn ghost" type="button" id="copyCfg">Copy</button>

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26 08:28 PT",
+ "generated": "2026-11-26 08:32 PT",
  "home": "Carlsbad, CA 92009",
  "searches": [
   {
@@ -35,7 +35,77 @@
     ],
     "slugs": {},
     "private_grid": null,
-    "notes": "min_price = suspect-price floor: anything listed below it is treated as a placeholder/deposit/scam and excluded."
+    "notes": "min_price = suspect-price floor: anything listed below it is treated as a placeholder/deposit/scam and excluded.",
+    "trim_classifier": {
+     "default": "Unverified",
+     "hint": "check interior photos (leather = Premium)",
+     "classes": [
+      {
+       "name": "Premium AWD",
+       "keywords": [
+        "premium",
+        "foundation series",
+        "vegan leather",
+        "leather seats",
+        "full leather",
+        "leather",
+        "ventilated",
+        "rear display",
+        "rear touchscreen",
+        "rear screen",
+        "9.4-inch",
+        "9.4 inch"
+       ],
+       "year_rule": {
+        "years": [
+         2024,
+         2025
+        ],
+        "drivetrain": [
+         "AWD",
+         "4WD"
+        ],
+        "why": "model year {year} AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level"
+       },
+       "strong_keywords": [
+        "premium awd",
+        "full leather",
+        "vegan leather",
+        "foundation series",
+        "ventilated"
+       ]
+      },
+      {
+       "name": "Base (Dual Motor) AWD",
+       "keywords": [
+        "textile",
+        "cloth seats",
+        "cloth",
+        "base model",
+        "base trim",
+        "standard interior",
+        "non-premium"
+       ],
+       "price_rule": {
+        "years": [
+         2026
+        ],
+        "drivetrain": [
+         "AWD",
+         "4WD"
+        ],
+        "max_price": 88000,
+        "why": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)"
+       },
+       "strong_keywords": [
+        "textile seats",
+        "textile",
+        "base dual motor"
+       ]
+      }
+     ],
+     "notes": "Order of trust: structured trim field from the dealer feed > listing title/description > dealer page feature list > model-year rule > price rule. 'Tactical Grey D\u00e9cor' is NOT a cue (seen on Premium AWD trucks). Some dealer templates (e.g. J&S AutoHaus) list 'Cloth Seats' even on leather trucks, so page-only cues are medium confidence."
+    }
    },
    "listings": [
     {
@@ -76,6 +146,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2025 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 2091,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -141,6 +214,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "dealer's page says: premium, leather seats, leather (dealer feature lists are sometimes templated; confirm in interior photos)",
+     "trim_class_conf": "medium",
      "distance": 2386,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -206,6 +282,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "dealer's page says: premium, leather seats, leather (dealer feature lists are sometimes templated; confirm in interior photos)",
+     "trim_class_conf": "medium",
      "distance": 2386,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -271,6 +350,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "dealer's page says: cloth seats, cloth (dealer feature lists are sometimes templated; confirm in interior photos)",
+     "trim_class_conf": "medium",
      "distance": 2386,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -336,6 +418,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "dealer's page says: cloth seats, cloth (dealer feature lists are sometimes templated; confirm in interior photos)",
+     "trim_class_conf": "medium",
      "distance": 2381,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -400,6 +485,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "dealer's page says: cloth seats, cloth (dealer feature lists are sometimes templated; confirm in interior photos)",
+     "trim_class_conf": "medium",
      "distance": 2381,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -465,6 +553,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 1205,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -530,6 +621,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "conflicting cues (dealer's page: Premium AWD: premium; Base (Dual Motor) AWD: cloth seats, cloth); check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2381,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -595,6 +689,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "dealer feed trim field says: premium",
+     "trim_class_conf": "high",
      "distance": 2381,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -640,7 +737,7 @@
      "sale_status_evidence": "from private drop file",
      "date_found": "2026-11-26",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:24 PT",
+     "drop_mtime": "2026-11-26 08:31 PT",
      "also_on": [
       {
        "source": "Facebook Marketplace",
@@ -666,6 +763,9 @@
      "history": "history unverified",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 900,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -725,6 +825,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 235,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -775,6 +878,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "dealer feed trim field says: premium",
+     "trim_class_conf": "high",
      "distance": 728,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -820,6 +926,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "dealer feed trim field says: premium",
+     "trim_class_conf": "high",
      "distance": 728,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -865,6 +974,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "dealer feed trim field says: premium",
+     "trim_class_conf": "high",
      "distance": 612,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -910,6 +1022,9 @@
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "dealer's page says: premium (dealer feature lists are sometimes templated; confirm in interior photos)",
+     "trim_class_conf": "medium",
      "distance": 728,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -952,6 +1067,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 1162,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1012,6 +1130,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 1178,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1063,6 +1184,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 243,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1114,6 +1238,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 292,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1165,6 +1292,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2273,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1212,6 +1342,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2173,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1263,6 +1396,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 1139,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1314,6 +1450,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 1154,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1365,6 +1504,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2080,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1416,6 +1558,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 287,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1466,6 +1611,9 @@
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2025 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 1300,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1501,7 +1649,7 @@
      "date_found": "2026-11-26",
      "notes": "Armor Package",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:24 PT",
+     "drop_mtime": "2026-11-26 08:31 PT",
      "drivetrain": "AWD",
      "variant": null,
      "drive_basis": "seller-stated",
@@ -1513,6 +1661,9 @@
      "history": "history unverified",
      "bucket": "match",
      "reasons": [],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "listing says: premium",
+     "trim_class_conf": "high",
      "distance": 606,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1548,7 +1699,7 @@
      "date_found": "2026-11-26",
      "notes": "drivetrain not stated",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:24 PT",
+     "drop_mtime": "2026-11-26 08:31 PT",
      "drivetrain": null,
      "variant": null,
      "drive_basis": "unknown",
@@ -1562,6 +1713,9 @@
      "reasons": [
       "drivetrain not stated"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 1309,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1597,7 +1751,7 @@
      "date_found": "2026-11-26",
      "notes": "drivetrain not stated; possibly RWD",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:24 PT",
+     "drop_mtime": "2026-11-26 08:31 PT",
      "drivetrain": null,
      "variant": null,
      "drive_basis": "unknown",
@@ -1611,6 +1765,9 @@
      "reasons": [
       "drivetrain not stated"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2275,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1665,6 +1822,9 @@
      "reasons": [
       "SALE PENDING"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2025 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": null,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1715,6 +1875,9 @@
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2025 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 1298,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1771,7 +1934,7 @@
      "sale_status_evidence": "from private drop file",
      "date_found": "2026-11-26",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:24 PT",
+     "drop_mtime": "2026-11-26 08:31 PT",
      "also_on": [
       {
        "source": "AutoTrader",
@@ -1796,6 +1959,9 @@
       "'rwd' in trim/drivetrain",
       "drivetrain RWD"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2126,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1861,6 +2027,9 @@
      "reasons": [
       "ACCIDENT/BRANDED: history report flag: ACCIDENTS_REPORTED"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2025 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 1264,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1913,6 +2082,9 @@
      "reasons": [
       "SALE PENDING"
      ],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)",
+     "trim_class_conf": "low",
      "distance": null,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -1965,6 +2137,9 @@
      "reasons": [
       "SALE PENDING"
      ],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)",
+     "trim_class_conf": "low",
      "distance": null,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2017,6 +2192,9 @@
      "reasons": [
       "SOLD"
      ],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)",
+     "trim_class_conf": "low",
      "distance": null,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2069,6 +2247,9 @@
      "reasons": [
       "SALE PENDING"
      ],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)",
+     "trim_class_conf": "low",
      "distance": null,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2121,6 +2302,9 @@
      "reasons": [
       "SALE PENDING"
      ],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)",
+     "trim_class_conf": "low",
      "distance": null,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2173,6 +2357,9 @@
      "reasons": [
       "SALE PENDING"
      ],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)",
+     "trim_class_conf": "low",
      "distance": null,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2225,6 +2412,9 @@
      "reasons": [
       "SALE PENDING"
      ],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)",
+     "trim_class_conf": "low",
      "distance": null,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2290,6 +2480,9 @@
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2386,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2350,6 +2543,9 @@
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2381,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2415,6 +2611,9 @@
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2381,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2465,6 +2664,9 @@
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2150,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2511,6 +2713,9 @@
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 802,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2560,6 +2765,9 @@
       "'cyberbeast' in trim/drivetrain",
       "SALE PENDING"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 52,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2608,6 +2816,9 @@
       "23,927 mi > 10,000",
       "SALE PENDING"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 52,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2656,6 +2867,9 @@
       "drivetrain RWD",
       "SALE PENDING"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 32,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2703,6 +2917,9 @@
       "20,130 mi > 10,000",
       "SALE PENDING"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2025 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 593,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2749,6 +2966,9 @@
      "reasons": [
       "SALE PENDING"
      ],
+     "trim_class": "Base (Dual Motor) AWD",
+     "trim_class_evidence": "2026 AWD priced at or under $88,000 with no premium cues (used 2026 Premium AWD trucks sell around $94K-$110K)",
+     "trim_class_conf": "low",
      "distance": 635,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2798,6 +3018,9 @@
       "'cyberbeast' in trim/drivetrain",
       "SALE PENDING"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 1864,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2846,6 +3069,9 @@
       "47,920 mi > 10,000",
       "SALE PENDING"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 2256,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2895,6 +3121,9 @@
       "'cyberbeast' in trim/drivetrain",
       "SALE PENDING"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 2091,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2942,6 +3171,9 @@
       "23,303 mi > 10,000",
       "'cyberbeast' in trim/drivetrain"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2025 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 236,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -2988,6 +3220,9 @@
      "reasons": [
       "20,928 mi > 10,000"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 236,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3035,6 +3270,9 @@
       "year 2024 < 2025",
       "44,608 mi > 10,000"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 236,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3082,6 +3320,9 @@
       "year 2024 < 2025",
       "17,382 mi > 10,000"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 236,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3128,6 +3369,9 @@
      "reasons": [
       "14,018 mi > 10,000"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 236,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3175,6 +3419,9 @@
       "year 2024 < 2025",
       "24,081 mi > 10,000"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 236,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3222,6 +3469,9 @@
       "year 2024 < 2025",
       "38,906 mi > 10,000"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 236,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3269,6 +3519,9 @@
       "year 2024 < 2025",
       "39,115 mi > 10,000"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 1695,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3316,6 +3569,9 @@
       "year 2024 < 2025",
       "27,575 mi > 10,000"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 1178,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3352,7 +3608,7 @@
      "search_id": "cybertruck-awd",
      "date_found": "2026-11-26",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:24 PT",
+     "drop_mtime": "2026-11-26 08:31 PT",
      "also_on": [
       {
        "source": "Facebook Marketplace",
@@ -3380,6 +3636,9 @@
      "reasons": [
       "ACCIDENT/BRANDED: branded title: rebuilt"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2025 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 904,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3429,6 +3688,9 @@
       "'rwd' in trim/drivetrain",
       "drivetrain RWD"
      ],
+     "trim_class": "Unverified",
+     "trim_class_evidence": "check interior photos (leather = Premium)",
+     "trim_class_conf": "",
      "distance": 2612,
      "first_seen": "2026-11-26 08:17 PT",
      "is_new": false,
@@ -3464,7 +3726,7 @@
      "date_found": "2026-11-26",
      "notes": "fails year/miles",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:24 PT",
+     "drop_mtime": "2026-11-26 08:31 PT",
      "drivetrain": "AWD",
      "variant": null,
      "drive_basis": "seller-stated",
@@ -3479,6 +3741,9 @@
       "year 2024 < 2025",
       "33,801 mi > 10,000"
      ],
+     "trim_class": "Premium AWD",
+     "trim_class_evidence": "model year 2024 AWD: the cheaper Dual Motor AWD trim only arrived around Sept 2025 (MY2026), so earlier AWD trucks are Premium-level",
+     "trim_class_conf": "medium",
      "distance": 2128,
      "first_seen": "2026-11-26",
      "is_new": false,

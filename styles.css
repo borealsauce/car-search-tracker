@@ -103,3 +103,6 @@ code{color:#a5f3fc}
 .t-hist{color:#fca5a5;border-color:#7f1d1d}
 .t-clean{color:var(--good);border-color:#065f46}
 .lc .ph{overflow:hidden}.lc .ph img{position:absolute;inset:0}
+
+.t-tcp{color:#c4b5fd;border-color:#6d28d9}.t-tcb{color:#7dd3fc;border-color:#0369a1}.t-tcu{color:#fbbf24;border-color:#92400e}
+.tcrow{margin-top:4px}.tcev{color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}

@@ -134,6 +134,7 @@ const LIST_COLS = [
   { k: 'history', label: 'History', w: 150, get: r => r.history, html: histTag },
   { k: 'source', label: 'Source', w: 150, get: r => r.via || r.source, html: srcHtml },
   { k: 'year', label: 'Year', w: 60, num: true },
+  { k: 'trim_class', label: 'Trim class', w: 190, get: r => r.trim_class, html: r => tcTag(r) + (r.trim_class_evidence ? `<div class="clamp small">${esc(r.trim_class_evidence)}</div>` : '') },
   { k: 'trim', label: 'Trim (as listed)', w: 170, get: r => r.trim },
   { k: 'drivetrain', label: 'Drivetrain', w: 140, get: r => r.variant || r.drivetrain, html: driveHtml },
   { k: 'price', label: 'Price', w: 95, num: true, html: r => r.price ? money(r.price) : '<span class="small">call</span>' },
@@ -262,11 +263,18 @@ function renderCards(ss) {
     card('new', 'New since last run', sum('new'), `${sum('price_drops')} price drops`) +
     card('pending', 'Removed as pending/sold', sum('pending_excluded'), 'on hold, sale pending, sold or deleted') +
     card('history', 'Removed: accident / branded title', sum('history_excluded'), `${sum('history_unverified')} remaining matches have unverified history`) +
+    (all.some(r => r.trim_class) ? card('trimclass', 'Trim class', all.filter(r => r.trim_class).length,
+      Object.entries(all.reduce((o, r) => { if (r.trim_class) o[r.trim_class] = (o[r.trim_class] || 0) + 1; return o; }, {})).map(([k, v]) => `${esc(k)}: ${v}`).join('<br>')) : '') +
     card('bysource', 'Matches by source', Object.keys(bySrc).length, Object.entries(bySrc).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${esc(k)}: ${v}`).join('<br>'));
   wireCards();
 }
 const mkOf = r => r.make || (r._cfg || {}).make || '';
 const mdOf = r => r.model || (r._cfg || {}).model || '';
+const tcOf = r => r.trim_class || 'Not classified';
+const tcTag = r => { if (!r.trim_class) return '';
+  const c = /^premium/i.test(r.trim_class) ? 't-tcp' : /^base/i.test(r.trim_class) ? 't-tcb' : 't-tcu';
+  const lbl = r.trim_class === 'Unverified' ? 'Trim unverified: check interior photos (leather = Premium)' : r.trim_class + (r.trim_class_conf === 'low' ? ' (likely, by price)' : r.trim_class_conf === 'medium' ? ' (probable)' : '');
+  return `<span class="tag ${c}" title="${esc(r.trim_class_evidence || '')}">${esc(lbl)}</span>`; };
 const trimOf = r => r.variant || r.trim || 'Not stated';
 const driveOf = r => r.drivetrain || 'Not stated';
 const srcOf = r => r.source;
@@ -291,7 +299,7 @@ function buildSidebar(ss) {
   selFor('fMake', uniq(mkOf), 'All makes'); selFor('fModel', uniq(mdOf), 'All models');
   const yrs = uniq(r => r.year).map(Number).sort((a, b) => a - b);
   selFor('fYearMin', yrs, 'Min'); selFor('fYearMax', yrs, 'Max');
-  checksFor('fTrim', rows, trimOf); checksFor('fDrive', rows, driveOf); checksFor('fSource', rows, srcOf); checksFor('fSeller', rows, sellOf);
+  checksFor('fTClass', rows, tcOf); $('#fTClassGrp').hidden = !rows.some(r => r.trim_class); checksFor('fTrim', rows, trimOf); checksFor('fDrive', rows, driveOf); checksFor('fSource', rows, srcOf); checksFor('fSeller', rows, sellOf);
   ['fPriceMin', 'fPriceMax', 'fMiles', 'fDist'].forEach(id => { const el = $('#' + id); el.value = FILT[id] || ''; el.oninput = el.onchange = () => { FILT[id] = el.value; LS.set('filters', FILT); refreshList(); }; });
 }
 function listRows(ss) {
@@ -304,8 +312,8 @@ function listRows(ss) {
     (!n('fYearMin') || (r.year || 0) >= n('fYearMin')) && (!n('fYearMax') || (r.year || 9999) <= n('fYearMax')) &&
     (!n('fPriceMin') || (r.price || 0) >= n('fPriceMin')) && (!n('fPriceMax') || (r.price != null && r.price <= n('fPriceMax'))) &&
     (!n('fMiles') || (r.miles != null && r.miles <= n('fMiles'))) && (!n('fDist') || (r.distance != null && r.distance <= n('fDist'))) &&
-    inSet('fTrim', trimOf(r)) && inSet('fDrive', driveOf(r)) && inSet('fSource', srcOf(r)) && inSet('fSeller', sellOf(r)) &&
-    (!q || JSON.stringify([r.city, r.state, r.seller, r.trim, r.notes, r.via, r.vin, r.variant, r.year]).toLowerCase().includes(q)));
+    inSet('fTrim', trimOf(r)) && inSet('fTClass', tcOf(r)) && inSet('fDrive', driveOf(r)) && inSet('fSource', srcOf(r)) && inSet('fSeller', sellOf(r)) &&
+    (!q || JSON.stringify([r.city, r.state, r.seller, r.trim, r.notes, r.via, r.vin, r.variant, r.year, r.trim_class, r.trim_class_evidence]).toLowerCase().includes(q)));
 }
 // card view
 const SORTS = {
@@ -330,6 +338,7 @@ function cardHtml(r) {
       <div class="meta">${r.miles != null ? mi(r.miles) + ' mi' : 'Miles not shown'}${r.title ? ' · ' + esc(r.title) + ' title' : ''}</div>
       <div class="loc">📍 ${esc(loc(r) || 'Location not shown')}${r.distance != null ? ` · ${mi(r.distance)} mi away` : ''}</div>
       <div class="badges">${srcs.map(s => `<span class="tag src">${esc(s)}</span>`).join('')}${statusTag(r)}${histTag(r)}</div>
+      ${r.trim_class ? `<div class="tcrow">${tcTag(r)}<div class="small tcev">${esc(r.trim_class_evidence || '')}</div></div>` : ''}
       ${(r.notes || r.reasons && r.reasons.length) ? `<div class="clamp small">${esc((r.bucket === 'maybe' ? 'Maybe: ' + r.reasons.join('; ') + '. ' : '') + (r.notes || ''))}</div>` : ''}
     </div>
     <div class="ft"><span class="small">${esc(r.seller || '')}${r.seller_type ? ' · ' + esc(r.seller_type) : ''}<br>First seen ${esc(r.first_seen || '')}</span><a class="go" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">View listing</a></div>
@@ -372,7 +381,9 @@ function formEntry() {
     drivetrain_allow: list('drivetrain_allow').map(s => s.toUpperCase()), include_keywords: list('include_keywords'),
     exclude_keywords: list('exclude_keywords').map(s => s.toLowerCase()), radius: n('radius') || 0,
     craigslist_query: g('craigslist_query') || `${g('make')} ${g('model')}`.toLowerCase(),
-    title_must_contain: list('title_must_contain').length ? list('title_must_contain').map(s => s.toLowerCase()) : [g('model').toLowerCase()], slugs: {} };
+    title_must_contain: list('title_must_contain').length ? list('title_must_contain').map(s => s.toLowerCase()) : [g('model').toLowerCase()], slugs: {},
+    ...(g('trim_classes') ? { trim_classifier: { default: 'Unverified', hint: g('trim_hint') || 'check listing photos/window sticker',
+      classes: g('trim_classes').split('\n').map(l => l.split(':')).filter(p => p.length > 1 && p[0].trim()).map(p => ({ name: p[0].trim(), keywords: p.slice(1).join(':').split(',').map(s => s.trim().toLowerCase()).filter(Boolean) })) } } : {}) };
 }
 function wireForm() {
   $('#addForm').addEventListener('submit', e => { e.preventDefault(); $('#cfgOut').textContent = JSON.stringify(formEntry(), null, 2); });
