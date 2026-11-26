@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Car Search Tracker</title>
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Car Search Tracker</h1>
+    <div class="sub" id="asof"></div>
+  </div>
+  <div class="top-actions">
+    <button class="btn" id="resetLayout" title="Put every box back in its default spot">Reset layout</button>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+<div class="criteria" id="criteria"></div>
+
+<main id="board">
+  <section class="box" data-box="summary"><h2>Summary</h2><div class="cards" id="cards"></div></section>
+
+  <section class="box" data-box="listings">
+    <h2>Listings <span class="n" id="nList"></span></h2>
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Filter by city, seller, trim, notes…">
+      <label class="chk"><input type="checkbox" id="showMaybe" checked> Show maybes</label>
+      <label class="chk"><input type="checkbox" id="newOnly"> New only</label>
+      <label class="chk"><input type="checkbox" id="hideUnverified"> Hide status-unverified</label>
+      <span class="spacer"></span>
+      <span class="sortmode" id="sortMode"></span>
+      <button class="btn" id="modeMulti">Multi-sort</button>
+      <button class="btn" id="modeSingle">Single sort</button>
+      <button class="btn ghost" id="clearSorts">Clear sorts</button>
+      <button class="btn ghost" id="exportCsv">Export CSV</button>
+    </div>
+    <div class="sortbar" id="sortBar"></div>
+    <div class="tablewrap"><table id="tList"></table></div>
+  </section>
+
+  <section class="box" data-box="sources">
+    <h2>Sites searched <span class="n" id="nSrc"></span></h2>
+    <p class="hint">Every site checked for this search, what happened, and when (Pacific time). "Browser drop" rows come from the private-sites file (Facebook Marketplace, OfferUp).</p>
+    <div class="tablewrap"><table id="tSrc"></table></div>
+  </section>
+
+  <section class="box" data-box="excluded">
+    <h2>Excluded <span class="n" id="nEx"></span></h2>
+    <p class="hint">Everything the sites returned that failed a filter, including listings marked sale pending, on hold, sold or removed.</p>
+    <div class="tablewrap"><table id="tEx"></table></div>
+  </section>
+
+  <section class="box" data-box="add">
+    <h2>Add a saved search</h2>
+    <form id="addForm" class="form">
+      <label>Name <input name="name" placeholder="F-150 Lightning 2023+ under 30K mi" required></label>
+      <label>Make <input name="make" placeholder="Ford" required></label>
+      <label>Model <input name="model" placeholder="F-150 Lightning" required></label>
+      <label>Year min <input name="year_min" type="number" placeholder="2023"></label>
+      <label>Year max <input name="year_max" type="number" placeholder="2025"></label>
+      <label>Max miles <input name="max_miles" type="number" placeholder="30000"></label>
+      <label>Min price <input name="min_price" type="number" placeholder="optional"></label>
+      <label>Max price <input name="max_price" type="number" placeholder="optional"></label>
+      <label>Drivetrains allowed <input name="drivetrain_allow" placeholder="AWD, 4WD (blank = any)"></label>
+      <label>Must mention (any) <input name="include_keywords" placeholder="Platinum, Lariat"></label>
+      <label>Exclude keywords <input name="exclude_keywords" placeholder="Pro, XLT, salvage"></label>
+      <label>Radius (mi, 0 = nationwide) <input name="radius" type="number" value="0"></label>
+      <label>Craigslist query <input name="craigslist_query" placeholder="defaults to make + model"></label>
+      <label>Listing title must contain (any) <input name="title_must_contain" placeholder="lightning"></label>
+      <div class="form-actions">
+        <button class="btn" type="submit">Generate config entry</button>
+        <button class="btn ghost" type="button" id="copyCfg">Copy</button>
+        <button class="btn ghost" type="button" id="dlCfg">Download searches.json</button>
+      </div>
+    </form>
+    <pre id="cfgOut" class="cfg"></pre>
+    <p class="hint">Add the entry to <code>searches.json</code> in the tracker folder (or download the full file with it included), then run <code>./refresh.sh</code>. It shows up as a new tab here.</p>
+  </section>
+</main>
+<script src="app.js?v=1"></script>
+</body>
+</html>

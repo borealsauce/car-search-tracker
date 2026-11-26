@@ -1,0 +1,40 @@
+{
+  "home_zip": "92009",
+  "home_label": "Carlsbad, CA 92009",
+  "home_lat": 33.1053,
+  "home_lng": -117.262,
+  "searches": [
+    {
+      "id": "cybertruck-awd",
+      "name": "Cybertruck 2025-26 AWD <10K mi",
+      "make": "Tesla",
+      "model": "Cybertruck",
+      "year_min": 2025,
+      "year_max": 2026,
+      "max_miles": 10000,
+      "max_price": null,
+      "min_price": 20000,
+      "drivetrain_allow": [
+        "AWD",
+        "4WD"
+      ],
+      "include_keywords": [],
+      "exclude_keywords": [
+        "cyberbeast",
+        "rwd",
+        "2wd",
+        "rear-wheel",
+        "rear wheel",
+        "tri motor",
+        "tri-motor"
+      ],
+      "radius": 0,
+      "craigslist_query": "cybertruck",
+      "title_must_contain": [
+        "cybertruck",
+        "cyber truck"
+      ],
+      "slugs": {}
+    }
+  ]
+}
