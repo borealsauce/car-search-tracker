@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26 08:18 PT",
+ "generated": "2026-11-26 08:28 PT",
  "home": "Carlsbad, CA 92009",
  "searches": [
   {
@@ -33,56 +33,11 @@
      "cybertruck",
      "cyber truck"
     ],
-    "slugs": {}
+    "slugs": {},
+    "private_grid": null,
+    "notes": "min_price = suspect-price floor: anything listed below it is treated as a placeholder/deposit/scam and excluded."
    },
    "listings": [
-    {
-     "source": "Visor",
-     "via": "Visor.vin",
-     "vin": "7G2CEHED3SA060748",
-     "year": 2025,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "All-Wheel Drive",
-     "price": 80990,
-     "price_with_fees": 80990,
-     "miles": 7675,
-     "city": "Carvana (ships to you)",
-     "state": "",
-     "lat": null,
-     "lng": null,
-     "seller": "Carvana",
-     "seller_type": "dealer",
-     "title": "clean",
-     "url": "https://www.carvana.com/vehicle/4833627",
-     "alt_url": "https://visor.vin/search/listings/7G2CEHED3SA060748",
-     "color": null,
-     "days_on_market": 41,
-     "condition": "used",
-     "notes": "Prior use: personal.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "also_on": [],
-     "sources": [
-      "Visor"
-     ],
-     "sale_status": "active?",
-     "sale_status_evidence": "Visor availability_status=transit (stock=on lot, transit=being shipped); Carvana's own 'Purchase pending / in another customer's cart' flag can't be read from this network (403). Open the link to confirm.",
-     "bucket": "match",
-     "reasons": [],
-     "distance": null,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       80990
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED3SA060748"
-    },
     {
      "source": "Visor",
      "via": "Visor.vin",
@@ -106,6 +61,7 @@
      "color": null,
      "days_on_market": 0,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/51/519a83f07060b89d0618714fb842be91ae37b83a1a0648656c859e1d01c9b842.01a1a93c-a3ea-7857-a9b5-eda6338b3f85.jpg",
      "notes": "Prior use: personal.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -114,6 +70,8 @@
      "sources": [
       "Visor"
      ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -153,6 +111,7 @@
      "color": "Stainless Steel",
      "days_on_market": 19,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/ed/ed88560d349136c23a030029a2ed8267bebb477ae0f587cd1c7cf60408ccb4d1.01a1cf05-8456-750e-8a38-bf937590b077.webp",
      "notes": "Prior use: personal.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -160,6 +119,11 @@
      "zip": "08638",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -171,6 +135,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -186,63 +152,6 @@
      ],
      "price_drop": 0,
      "key": "VIN:7G2CEHED0SA070430"
-    },
-    {
-     "source": "Visor",
-     "via": "Visor.vin",
-     "vin": "7G2CEHED7SA074376",
-     "year": 2025,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "All-Wheel Drive",
-     "price": 94999,
-     "price_with_fees": 94999,
-     "miles": 5019,
-     "city": "Wahoo",
-     "state": "NE",
-     "lat": 41.2365844,
-     "lng": -96.6005531,
-     "seller": "Harvest Auto Family",
-     "seller_type": "dealer",
-     "title": "clean",
-     "url": "https://driveharvest.com/inventory/used-2025-tesla-cybertruck-all-wheel-drive-pickup-4d-6-ft-7g2cehed7sa074376-in-wahoo-ne",
-     "alt_url": "https://visor.vin/search/listings/7G2CEHED7SA074376",
-     "color": "White",
-     "days_on_market": 1,
-     "condition": "used",
-     "notes": "Prior use: lease. Also listed at $94,700 on AutoTrader.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "zip": "68066",
-     "drive_stated": "All Wheel Drive",
-     "availability": "http://schema.org/InStock",
-     "also_on": [
-      {
-       "source": "AutoTrader",
-       "url": "https://www.autotrader.com/cars-for-sale/vehicle/797040377",
-       "price": 94700.0
-      }
-     ],
-     "sources": [
-      "AutoTrader",
-      "Visor"
-     ],
-     "sale_status": "active",
-     "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers (checked 1 status flags, all false)",
-     "bucket": "match",
-     "reasons": [],
-     "distance": 1264,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       94999
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED7SA074376"
     },
     {
      "source": "Visor",
@@ -267,6 +176,7 @@
      "color": "Stainless Steel",
      "days_on_market": 19,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/e2/e2d9b5ef8f9d3c7023b70f950246743a76e774999a9d9bee244af29c10635907.01a1b7d8-c848-7c02-a023-46f4817fe614.webp",
      "notes": "Prior use: personal.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -274,6 +184,11 @@
      "zip": "08638",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -285,6 +200,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -300,335 +217,6 @@
      ],
      "price_drop": 0,
      "key": "VIN:7G2CEHEDXSA071830"
-    },
-    {
-     "source": "Visor",
-     "via": "Visor.vin",
-     "vin": "7G2CEHED3TA097221",
-     "year": 2026,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "All-Wheel Drive",
-     "price": 78990,
-     "price_with_fees": 78990,
-     "miles": 9295,
-     "city": "Carvana (ships to you)",
-     "state": "",
-     "lat": null,
-     "lng": null,
-     "seller": "Carvana",
-     "seller_type": "dealer",
-     "title": "clean",
-     "url": "https://www.carvana.com/vehicle/4888385",
-     "alt_url": "https://visor.vin/search/listings/7G2CEHED3TA097221",
-     "color": null,
-     "days_on_market": 21,
-     "condition": "used",
-     "notes": "Prior use: personal.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "also_on": [],
-     "sources": [
-      "Visor"
-     ],
-     "sale_status": "active?",
-     "sale_status_evidence": "Visor availability_status=transit (stock=on lot, transit=being shipped); Carvana's own 'Purchase pending / in another customer's cart' flag can't be read from this network (403). Open the link to confirm.",
-     "bucket": "match",
-     "reasons": [],
-     "distance": null,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       78990
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED3TA097221"
-    },
-    {
-     "source": "Visor",
-     "via": "Visor.vin",
-     "vin": "7G2CEHED5TA102709",
-     "year": 2026,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "All-Wheel Drive",
-     "price": 79990,
-     "price_with_fees": 79990,
-     "miles": 2077,
-     "city": "Carvana (ships to you)",
-     "state": "",
-     "lat": null,
-     "lng": null,
-     "seller": "Carvana",
-     "seller_type": "dealer",
-     "title": "clean",
-     "url": "https://www.carvana.com/vehicle/4894171",
-     "alt_url": "https://visor.vin/search/listings/7G2CEHED5TA102709",
-     "color": null,
-     "days_on_market": 7,
-     "condition": "used",
-     "notes": "Prior use: personal.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "also_on": [],
-     "sources": [
-      "Visor"
-     ],
-     "sale_status": "active?",
-     "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); Carvana's own 'Purchase pending / in another customer's cart' flag can't be read from this network (403). Open the link to confirm.",
-     "bucket": "match",
-     "reasons": [],
-     "distance": null,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       79990
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED5TA102709"
-    },
-    {
-     "source": "Visor",
-     "via": "Visor.vin",
-     "vin": "7G2CEHED3TA096425",
-     "year": 2026,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "All-Wheel Drive",
-     "price": 80990,
-     "price_with_fees": 80990,
-     "miles": 2344,
-     "city": "Carvana (ships to you)",
-     "state": "",
-     "lat": null,
-     "lng": null,
-     "seller": "Carvana",
-     "seller_type": "dealer",
-     "title": "clean",
-     "url": "https://www.carvana.com/vehicle/4899671",
-     "alt_url": "https://visor.vin/search/listings/7G2CEHED3TA096425",
-     "color": null,
-     "days_on_market": 11,
-     "condition": "used",
-     "notes": "Prior use: personal.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "also_on": [],
-     "sources": [
-      "Visor"
-     ],
-     "sale_status": "active?",
-     "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); Carvana's own 'Purchase pending / in another customer's cart' flag can't be read from this network (403). Open the link to confirm.",
-     "bucket": "match",
-     "reasons": [],
-     "distance": null,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       80990
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED3TA096425"
-    },
-    {
-     "source": "Visor",
-     "via": "Visor.vin",
-     "vin": "7G2CEHED2TA103087",
-     "year": 2026,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "All-Wheel Drive",
-     "price": 81990,
-     "price_with_fees": 81990,
-     "miles": 1793,
-     "city": "Carvana (ships to you)",
-     "state": "",
-     "lat": null,
-     "lng": null,
-     "seller": "Carvana",
-     "seller_type": "dealer",
-     "title": "clean",
-     "url": "https://www.carvana.com/vehicle/4912705",
-     "alt_url": "https://visor.vin/search/listings/7G2CEHED2TA103087",
-     "color": null,
-     "days_on_market": 9,
-     "condition": "used",
-     "notes": "Prior use: personal.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "also_on": [],
-     "sources": [
-      "Visor"
-     ],
-     "sale_status": "active?",
-     "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); Carvana's own 'Purchase pending / in another customer's cart' flag can't be read from this network (403). Open the link to confirm.",
-     "bucket": "match",
-     "reasons": [],
-     "distance": null,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       81990
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED2TA103087"
-    },
-    {
-     "source": "Visor",
-     "via": "Visor.vin",
-     "vin": "7G2CEHED5TA100295",
-     "year": 2026,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "All-Wheel Drive",
-     "price": 81990,
-     "price_with_fees": 81990,
-     "miles": 4790,
-     "city": "Carvana (ships to you)",
-     "state": "",
-     "lat": null,
-     "lng": null,
-     "seller": "Carvana",
-     "seller_type": "dealer",
-     "title": "clean",
-     "url": "https://www.carvana.com/vehicle/4919465",
-     "alt_url": "https://visor.vin/search/listings/7G2CEHED5TA100295",
-     "color": null,
-     "days_on_market": 7,
-     "condition": "used",
-     "notes": "Prior use: personal.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "also_on": [],
-     "sources": [
-      "Visor"
-     ],
-     "sale_status": "active?",
-     "sale_status_evidence": "Visor availability_status=transit (stock=on lot, transit=being shipped); Carvana's own 'Purchase pending / in another customer's cart' flag can't be read from this network (403). Open the link to confirm.",
-     "bucket": "match",
-     "reasons": [],
-     "distance": null,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       81990
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED5TA100295"
-    },
-    {
-     "source": "Visor",
-     "via": "Visor.vin",
-     "vin": "7G2CEHED3TA102868",
-     "year": 2026,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "All-Wheel Drive",
-     "price": 82590,
-     "price_with_fees": 82590,
-     "miles": 543,
-     "city": "Carvana (ships to you)",
-     "state": "",
-     "lat": null,
-     "lng": null,
-     "seller": "Carvana",
-     "seller_type": "dealer",
-     "title": "clean",
-     "url": "https://www.carvana.com/vehicle/4924818",
-     "alt_url": "https://visor.vin/search/listings/7G2CEHED3TA102868",
-     "color": null,
-     "days_on_market": 8,
-     "condition": "used",
-     "notes": "Prior use: unknown.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "also_on": [],
-     "sources": [
-      "Visor"
-     ],
-     "sale_status": "active?",
-     "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); Carvana's own 'Purchase pending / in another customer's cart' flag can't be read from this network (403). Open the link to confirm.",
-     "bucket": "match",
-     "reasons": [],
-     "distance": null,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       82590
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED3TA102868"
-    },
-    {
-     "source": "Visor",
-     "via": "Visor.vin",
-     "vin": "7G2CEHED5TA103892",
-     "year": 2026,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "All-Wheel Drive",
-     "price": 83990,
-     "price_with_fees": 83990,
-     "miles": 80,
-     "city": "Carvana (ships to you)",
-     "state": "",
-     "lat": null,
-     "lng": null,
-     "seller": "Carvana",
-     "seller_type": "dealer",
-     "title": "clean",
-     "url": "https://www.carvana.com/vehicle/4924484",
-     "alt_url": "https://visor.vin/search/listings/7G2CEHED5TA103892",
-     "color": null,
-     "days_on_market": 2,
-     "condition": "used",
-     "notes": "Prior use: personal.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "also_on": [],
-     "sources": [
-      "Visor"
-     ],
-     "sale_status": "active?",
-     "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); Carvana's own 'Purchase pending / in another customer's cart' flag can't be read from this network (403). Open the link to confirm.",
-     "bucket": "match",
-     "reasons": [],
-     "distance": null,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       83990
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED5TA103892"
     },
     {
      "source": "Visor",
@@ -653,6 +241,7 @@
      "color": "Stainless Steel",
      "days_on_market": 7,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/f5/f56cf67e25c1a6fdac851f8beb1f84f4c2c0da57fcd4f312678637a5e6e2890c.01a1faca-d51d-7be4-97c7-9246d8b853e2.webp",
      "notes": "Prior use: personal.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -660,6 +249,11 @@
      "zip": "08638",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -671,6 +265,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -710,6 +306,7 @@
      "color": "Stainless Steel",
      "days_on_market": 33,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/a2/a2390fec8c3ade7e5ec0736eed5483e40d658beb638024446bb55dc6431df249.01a196f6-3049-758c-9c7e-d03dc24c0614.webp",
      "notes": "Prior use: unknown.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -717,6 +314,11 @@
      "zip": "08638",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -728,6 +330,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -767,6 +371,7 @@
      "color": "Stainless Steel",
      "days_on_market": 9,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/88/883eb8b5afd35df811f6404c132ef06813fa662c13136276001d1ee25642651e.01a1f82f-2151-75b1-b3fe-2acb5da207e7.webp",
      "notes": "Prior use: personal.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -774,6 +379,10 @@
      "zip": "08638",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -785,6 +394,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -824,6 +435,7 @@
      "color": null,
      "days_on_market": 5,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/e3/e324f239affedf148d36877c4ce903ddc7f4beef257230547db04bdc71b890b6.01a20047-a0bf-73d9-a4be-095d12fa880e.jpg",
      "notes": "Prior use: unknown.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -831,6 +443,11 @@
      "zip": "75126",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -842,6 +459,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -881,6 +500,7 @@
      "color": "Stainless Steel",
      "days_on_market": 9,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/db/dbffcec849caeaf5a211063a308cba910ff77644557fb9c0720d636cbb5f7267.01a1f67c-db93-75f0-8ec4-3d0d0d4f17e7.webp",
      "notes": "Prior use: personal.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -888,6 +508,11 @@
      "zip": "08638",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -899,6 +524,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -938,6 +565,7 @@
      "color": "Stainless Steel",
      "days_on_market": 7,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/18/187646c44b23fbdf064fe726fd62d094def5c003b68c445615b5080cb726e244.01a200d2-73ab-73f7-9952-b4011531e6f4.webp",
      "notes": "Prior use: lease.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -945,6 +573,11 @@
      "zip": "08638",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -956,6 +589,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -979,7 +614,7 @@
      "year": 2026,
      "make": "Tesla",
      "model": "Cybertruck",
-     "trim": "AWD",
+     "trim": "Base",
      "price": 109990,
      "price_with_fees": 109990,
      "miles": 2500,
@@ -995,18 +630,31 @@
      "color": null,
      "days_on_market": 2,
      "condition": "used",
-     "notes": "Prior use: unknown. Dealer feed only links to its homepage (https://diplomatmotors.com/); link goes to the Visor record for this VIN.",
+     "photo": "https://photos.visor.vin/listing-photos/originals/2d/2d66c9772916dd788dad12406d8cf30b9c6cda968a6ac8fd89a4082b94bb2445.01a20f07-9877-7365-84dd-2d11488b6926.png",
+     "notes": "Prior use: unknown. Dealer feed only links to its homepage (https://diplomatmotors.com/); link goes to the Visor record for this VIN. Also listed at $110,240 on Facebook Marketplace.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
      "search_id": "cybertruck-awd",
-     "drive_stated": "AWD (seller-stated)",
+     "sale_status": "active",
+     "sale_status_evidence": "from private drop file",
+     "date_found": "2026-11-26",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:12 PT",
+     "drop_mtime": "2026-11-26 08:24 PT",
      "also_on": [
       {
        "source": "Facebook Marketplace",
        "url": "https://www.facebook.com/marketplace/item/2055632448430290/",
+       "price": 109990
+      },
+      {
+       "source": "Facebook Marketplace",
+       "url": "https://www.facebook.com/marketplace/item/1476128041142362/",
+       "price": 110240
+      },
+      {
+       "source": "Facebook Marketplace",
+       "url": "https://www.facebook.com/marketplace/item/3004891626531654/",
        "price": 109990
       }
      ],
@@ -1014,8 +662,8 @@
       "Facebook Marketplace",
       "Visor"
      ],
-     "sale_status": "active",
-     "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "match",
      "reasons": [],
      "distance": 900,
@@ -1053,6 +701,7 @@
      "color": null,
      "days_on_market": 6,
      "condition": "used",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-577122/photo/2019-porsche-911--gt3--rs-0-296712612.webp",
      "notes": "Prior use: unknown.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -1070,6 +719,8 @@
       "Visor",
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -1109,6 +760,7 @@
      "color": "Stainless Steel",
      "days_on_market": 9,
      "condition": "used",
+     "photo": "https://images.dealersync.com/2874/Photos/comingsoon/659235d5e71d4aaab1ea4db799a6e34a.jpg",
      "notes": "No price shown (call for price). Prior use: personal.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -1117,6 +769,8 @@
      "sources": [
       "Visor"
      ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -1151,6 +805,7 @@
      "color": null,
      "days_on_market": 6,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/4a/4a67a561e70c4372eadbf3d7ab9e9ba4136d41c24a5ca54f4322602becbac74c.01a1ffc9-59df-7cf0-8a6a-8dc7aa878b1a.jpg",
      "notes": "No price shown (call for price). Prior use: unknown.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -1159,6 +814,8 @@
      "sources": [
       "Visor"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -1193,6 +850,7 @@
      "color": null,
      "days_on_market": 0,
      "condition": "used",
+     "photo": "https://vehicle-images.carscommerce.inc/c380-18003399/7G2CEHED4TA103544/a735cdca6b3a8ce744e72d2f828b4686.webp",
      "notes": "No price shown (call for price). Prior use: unknown.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -1201,6 +859,8 @@
      "sources": [
       "Visor"
      ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped)",
      "bucket": "match",
@@ -1235,6 +895,7 @@
      "color": null,
      "days_on_market": 6,
      "condition": "used",
+     "photo": "https://images.dealersync.com/2874/Photos/comingsoon/659235d5e71d4aaab1ea4db799a6e34a.jpg",
      "notes": "No price shown (call for price). Prior use: unknown.",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
@@ -1243,6 +904,8 @@
      "sources": [
       "Visor"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "sale_status": "active",
      "sale_status_evidence": "Visor availability_status=stock (stock=on lot, transit=being shipped); listing page loads; no pending/sold markers",
      "bucket": "match",
@@ -1274,6 +937,8 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/796344208",
      "color": "Silver",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/554285af-3595-4f85-a59e-94ae83c0d41c.jpeg",
+     "history_flags": null,
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1281,6 +946,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1317,6 +984,12 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/791082567",
      "color": "Silver",
      "notes": "",
+     "photo": "https://images.autotrader.com/hn/c/33fe154c8fb54b459ed394c24e003a39.jpg",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1333,6 +1006,8 @@
       "AutoTrader",
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1369,6 +1044,12 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/796896814",
      "color": "Silver",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/f1a2d788-9422-4395-a334-f1649899eed0.jpeg",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1376,6 +1057,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1412,6 +1095,12 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/796381104",
      "color": "Black",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/cc3a04f6-bea2-46f3-ac75-994060f96948.jpeg",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1419,6 +1108,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1455,6 +1146,12 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/794143038",
      "color": "Silver",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/d596924a-74cf-469b-aeff-9197259ac555.png",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1462,6 +1159,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1498,6 +1197,8 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/796655138",
      "color": "Silver",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/0ed48438-6655-45a9-a6f2-97a5397aad8c.jpg",
+     "history_flags": null,
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1505,6 +1206,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1541,6 +1244,12 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/796650898",
      "color": "Silver",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/b836bd11-6685-4e4a-92c9-31ca49f61b72.jpeg",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1548,6 +1257,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1584,6 +1295,12 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/796654573",
      "color": "Silver",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/d5b8e03a-992f-4401-b49b-b50e5afc8877.jpeg",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1591,6 +1308,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1627,6 +1346,12 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/795763908",
      "color": "Silver",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/1174475a-0a5d-46f1-ad87-4c856f9e766b.jpg",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1634,6 +1359,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1670,6 +1397,12 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/796899077",
      "color": "Silver",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/64a97316-d50c-4fe6-92aa-5a391750ffaa.jpeg",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1677,6 +1410,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1713,6 +1448,11 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/784343596",
      "color": "Gray",
      "notes": "Price is over 2x the median of matches; may be a placeholder.",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/273966e1-b87e-4780-9239-7d719e5797ad.jpg",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED"
+     ],
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -1720,6 +1460,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "sale_status": "active",
      "sale_status_evidence": "AutoTrader listing data: InStock (page itself not re-checked)",
      "bucket": "match",
@@ -1737,59 +1479,6 @@
      "key": "VIN:7G2CEHEDXSA069284"
     },
     {
-     "source": "Craigslist",
-     "via": "Craigslist (portland)",
-     "vin": "7G2CEHED6SA059240",
-     "year": 2025,
-     "make": "Tesla",
-     "model": "Cybertruck",
-     "trim": "2025 Tesla Cybertruck AWD All Wheel Drive Electric  Pickup 4D 6 ft Pickup",
-     "price": 69999,
-     "miles": 9501,
-     "city": "Camas",
-     "state": "WA",
-     "lat": 45.58845,
-     "lng": -122.3875,
-     "seller": null,
-     "seller_type": "dealer",
-     "title": "rebuilt",
-     "drive_stated": "4wd",
-     "url": "https://www.craigslist.org/view/d/camas-2025-tesla-cybertruck-awd-all/_llYhdDY8RGA-5CP44vy8Q",
-     "sale_status": "active",
-     "sale_status_evidence": "listing page loads; no pending/sold markers",
-     "notes": "Craigslist location field: \"Free Shipping 300 Miles!\". (360) 207-6511 Riverside Auto Sales Inc STOCK #: CR059240 CALL : (360) 207-6511 \ud83d\udcde CLICK THE LINK BELOW FOR MORE INFORMATION: https://atmxi.com/CL-Vxrk ???? 2025 TESLA CYBERTRUCK AWD ONLY 9,501 MILES! ????? FUTURISTIC DESIGN | ALL-WHEEL DRIVE | LOW MILES | INCREDIBLE DEAL! ??? 2025 Tesla Cybertruck All-Wheel Drive Pickup 4D 6 FT BED?? ONLY 9,501 MILES!?? ALL-WHEEL DRIVE (AWD)!?? RUNS AND DRIVES LIKE NEW!?? BRANDED TITLE PRICED ACCORDINGLY!?? TURN HEADS EVERYWHERE YOU GO!This Cybertruck combines T Also listed at $65,199 on Facebook Marketplace.",
-     "drivetrain": "AWD",
-     "variant": "Dual Motor AWD",
-     "drive_basis": "VIN-confirmed",
-     "search_id": "cybertruck-awd",
-     "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:12 PT",
-     "also_on": [
-      {
-       "source": "Facebook Marketplace",
-       "url": "https://www.facebook.com/marketplace/item/1776479901155432/",
-       "price": 65199
-      }
-     ],
-     "sources": [
-      "Craigslist",
-      "Facebook Marketplace"
-     ],
-     "bucket": "match",
-     "reasons": [],
-     "distance": 904,
-     "first_seen": "2026-11-26 08:17 PT",
-     "is_new": false,
-     "price_history": [
-      [
-       "2026-11-26 08:17 PT",
-       69999
-      ]
-     ],
-     "price_drop": 0,
-     "key": "VIN:7G2CEHED6SA059240"
-    },
-    {
      "search_id": "cybertruck-awd",
      "source": "Facebook Marketplace",
      "via": "Facebook Marketplace",
@@ -1797,21 +1486,22 @@
      "year": 2026,
      "make": "Tesla",
      "model": "Cybertruck",
-     "trim": "Premium AWD w/ Armor Package",
-     "drive_stated": "AWD (seller-stated)",
+     "trim": "Premium AWD",
+     "drive_stated": null,
+     "photo": null,
      "price": 109950,
      "miles": 7700,
      "city": "Salt Lake City",
      "state": "UT",
-     "seller_type": "unknown",
+     "seller_type": "private",
      "title": null,
      "vin": null,
-     "sale_status": "unverified",
-     "sale_status_evidence": "",
-     "date_found": null,
-     "notes": "Mileage about 7700 per listing.",
+     "sale_status": "active",
+     "sale_status_evidence": "from private drop file",
+     "date_found": "2026-11-26",
+     "notes": "Armor Package",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:12 PT",
+     "drop_mtime": "2026-11-26 08:24 PT",
      "drivetrain": "AWD",
      "variant": null,
      "drive_basis": "seller-stated",
@@ -1819,6 +1509,8 @@
      "sources": [
       "Facebook Marketplace"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "match",
      "reasons": [],
      "distance": 606,
@@ -1841,21 +1533,22 @@
      "year": 2025,
      "make": "Tesla",
      "model": "Cybertruck",
-     "trim": "Trim not stated",
+     "trim": null,
      "drive_stated": null,
+     "photo": null,
      "price": 77813,
-     "miles": 3790,
+     "miles": 3700,
      "city": "Houston",
      "state": "TX",
-     "seller_type": "unknown",
+     "seller_type": "private",
      "title": null,
      "vin": null,
-     "sale_status": "unverified",
-     "sale_status_evidence": "",
-     "date_found": null,
-     "notes": "MAYBE: trim/drivetrain not stated in listing.",
+     "sale_status": "active",
+     "sale_status_evidence": "from private drop file",
+     "date_found": "2026-11-26",
+     "notes": "drivetrain not stated",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:12 PT",
+     "drop_mtime": "2026-11-26 08:24 PT",
      "drivetrain": null,
      "variant": null,
      "drive_basis": "unknown",
@@ -1863,6 +1556,8 @@
      "sources": [
       "Facebook Marketplace"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "maybe",
      "reasons": [
       "drivetrain not stated"
@@ -1887,21 +1582,22 @@
      "year": 2026,
      "make": "Tesla",
      "model": "Cybertruck",
-     "trim": "Trim unclear",
+     "trim": null,
      "drive_stated": null,
+     "photo": null,
      "price": 69789,
      "miles": 3500,
      "city": "Sunny Isles Beach",
      "state": "FL",
-     "seller_type": "unknown",
+     "seller_type": "private",
      "title": null,
      "vin": null,
-     "sale_status": "unverified",
-     "sale_status_evidence": "",
-     "date_found": null,
-     "notes": "MAYBE: drivetrain not stated; price suggests it may be the RWD trim. Confirm before contacting.",
+     "sale_status": "active",
+     "sale_status_evidence": "from private drop file",
+     "date_found": "2026-11-26",
+     "notes": "drivetrain not stated; possibly RWD",
      "drop_file": "private_listings.csv",
-     "drop_mtime": "2026-11-26 08:12 PT",
+     "drop_mtime": "2026-11-26 08:24 PT",
      "drivetrain": null,
      "variant": null,
      "drive_basis": "unknown",
@@ -1909,6 +1605,8 @@
      "sources": [
       "Facebook Marketplace"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "maybe",
      "reasons": [
       "drivetrain not stated"
@@ -1927,6 +1625,58 @@
     }
    ],
    "excluded": [
+    {
+     "source": "Visor",
+     "via": "Visor.vin",
+     "vin": "7G2CEHED3SA060748",
+     "year": 2025,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "All-Wheel Drive",
+     "price": 80990,
+     "price_with_fees": 80990,
+     "miles": 7675,
+     "city": "Carvana (ships to you)",
+     "state": "",
+     "lat": null,
+     "lng": null,
+     "seller": "Carvana",
+     "seller_type": "dealer",
+     "title": "clean",
+     "url": "https://www.carvana.com/vehicle/4833627",
+     "alt_url": "https://visor.vin/search/listings/7G2CEHED3SA060748",
+     "color": null,
+     "days_on_market": 41,
+     "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/82/823d5e8838a24378fb36e6def84a9b6c61e58935f79258de93a2d4bbac8332e2.585e8540-7f98-42ae-b51f-be34f755956a.jpg",
+     "notes": "Prior use: personal.",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "sale_status": "pending",
+     "sale_status_evidence": "Visor.vin: manual check 2026-11-26 08:24: Purchase in progress - another customer started purchasing",
+     "also_on": [],
+     "sources": [
+      "Visor"
+     ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
+     "bucket": "excluded",
+     "reasons": [
+      "SALE PENDING"
+     ],
+     "distance": null,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       80990
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED3SA060748"
+    },
     {
      "source": "Visor",
      "via": "Visor.vin",
@@ -1950,6 +1700,7 @@
      "color": null,
      "days_on_market": 26,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/59/59636c093c73e9b288a1efcb2c3a9baad4183e15240f581688438013e057e147.01a19213-6362-77a7-89f1-0112ab7423da.jpg",
      "notes": "Prior use: unknown.",
      "drivetrain": "AWD",
      "variant": "Cyberbeast (tri motor)",
@@ -1958,6 +1709,8 @@
      "sources": [
       "Visor"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
@@ -1997,24 +1750,47 @@
      "color": "Unavail",
      "days_on_market": 8,
      "condition": "used",
-     "notes": "Prior use: personal. Also listed at $87,926 on AutoTrader.",
+     "photo": "https://photos.visor.vin/listing-photos/originals/6a/6ac2765b5d76474d788f3516961de3c5c1297d8f03278e827f8be3d4d9e1cc99.01a1fae5-6b8a-719b-9f75-81b4b9413233.webp",
+     "notes": "Prior use: personal. Also listed at $87,926 on AutoTrader, $87,926 on eBay Motors.",
      "drivetrain": "RWD",
      "variant": "RWD (single motor)",
      "drive_basis": "VIN-confirmed",
      "zip": "27407",
      "drive_stated": "2 Wheel Drive - Rear",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_FRAME_DAMAGE",
+      "NO_FLOOD_WATER_DAMAGE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER",
+      "FREE_REPORT"
+     ],
+     "search_id": "cybertruck-awd",
+     "sale_status": "active",
+     "sale_status_evidence": "from private drop file",
+     "date_found": "2026-11-26",
+     "drop_file": "private_listings.csv",
+     "drop_mtime": "2026-11-26 08:24 PT",
      "also_on": [
       {
        "source": "AutoTrader",
        "url": "https://www.autotrader.com/cars-for-sale/vehicle/796458835",
        "price": 87926.0
+      },
+      {
+       "source": "eBay Motors",
+       "url": "https://www.ebay.com/itm/327474680699",
+       "price": 87926
       }
      ],
      "sources": [
       "AutoTrader",
-      "Visor"
+      "Visor",
+      "eBay Motors"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "bucket": "excluded",
      "reasons": [
       "'rwd' in trim/drivetrain",
@@ -2031,6 +1807,435 @@
      ],
      "price_drop": 0,
      "key": "VIN:7G2CEGECXSA077032"
+    },
+    {
+     "source": "Visor",
+     "via": "Visor.vin",
+     "vin": "7G2CEHED7SA074376",
+     "year": 2025,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "All-Wheel Drive",
+     "price": 94999,
+     "price_with_fees": 94999,
+     "miles": 5019,
+     "city": "Wahoo",
+     "state": "NE",
+     "lat": 41.2365844,
+     "lng": -96.6005531,
+     "seller": "Harvest Auto Family",
+     "seller_type": "dealer",
+     "title": "clean",
+     "url": "https://driveharvest.com/inventory/used-2025-tesla-cybertruck-all-wheel-drive-pickup-4d-6-ft-7g2cehed7sa074376-in-wahoo-ne",
+     "alt_url": "https://visor.vin/search/listings/7G2CEHED7SA074376",
+     "color": "White",
+     "days_on_market": 1,
+     "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/dd/ddf9511a38d20f199715a70625a7202e08fb408bc5586b790b8944229554f237.01a21300-0f36-701f-ae9b-1ec89faf1683.webp",
+     "notes": "Prior use: lease. Also listed at $94,700 on AutoTrader.",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "zip": "68066",
+     "drive_stated": "All Wheel Drive",
+     "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
+     "also_on": [
+      {
+       "source": "AutoTrader",
+       "url": "https://www.autotrader.com/cars-for-sale/vehicle/797040377",
+       "price": 94700.0
+      }
+     ],
+     "sources": [
+      "AutoTrader",
+      "Visor"
+     ],
+     "history_bad": "history report flag: ACCIDENTS_REPORTED",
+     "history": "accident/damage reported",
+     "bucket": "excluded",
+     "reasons": [
+      "ACCIDENT/BRANDED: history report flag: ACCIDENTS_REPORTED"
+     ],
+     "distance": 1264,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       94999
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED7SA074376"
+    },
+    {
+     "source": "Visor",
+     "via": "Visor.vin",
+     "vin": "7G2CEHED3TA097221",
+     "year": 2026,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "All-Wheel Drive",
+     "price": 78990,
+     "price_with_fees": 78990,
+     "miles": 9295,
+     "city": "Carvana (ships to you)",
+     "state": "",
+     "lat": null,
+     "lng": null,
+     "seller": "Carvana",
+     "seller_type": "dealer",
+     "title": "clean",
+     "url": "https://www.carvana.com/vehicle/4888385",
+     "alt_url": "https://visor.vin/search/listings/7G2CEHED3TA097221",
+     "color": null,
+     "days_on_market": 21,
+     "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/53/5333f66a3cd813060287d0f479dfb14aeb273c9dd3473cf3b21c1313298ec2e2.01a1addf-6571-7547-b62c-1d2d400a13d0.jpg",
+     "notes": "Prior use: personal.",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "sale_status": "pending",
+     "sale_status_evidence": "Visor.vin: manual check 2026-11-26 08:24: Purchase in progress - another customer started purchasing",
+     "also_on": [],
+     "sources": [
+      "Visor"
+     ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
+     "bucket": "excluded",
+     "reasons": [
+      "SALE PENDING"
+     ],
+     "distance": null,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       78990
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED3TA097221"
+    },
+    {
+     "source": "Visor",
+     "via": "Visor.vin",
+     "vin": "7G2CEHED5TA102709",
+     "year": 2026,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "All-Wheel Drive",
+     "price": 79990,
+     "price_with_fees": 79990,
+     "miles": 2077,
+     "city": "Carvana (ships to you)",
+     "state": "",
+     "lat": null,
+     "lng": null,
+     "seller": "Carvana",
+     "seller_type": "dealer",
+     "title": "clean",
+     "url": "https://www.carvana.com/vehicle/4894171",
+     "alt_url": "https://visor.vin/search/listings/7G2CEHED5TA102709",
+     "color": null,
+     "days_on_market": 7,
+     "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/4e/4e0a6fcdc45ce29862ef0571c1f374262e4b5d35f8c8ef11e25838d8d06d3de1.01a1f7f7-9b9e-7867-8e86-a9e23aaaba7b.jpg",
+     "notes": "Prior use: personal.",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "sale_status": "pending",
+     "sale_status_evidence": "Visor.vin: manual check 2026-11-26 08:24: Purchase in progress - another customer started purchasing",
+     "also_on": [],
+     "sources": [
+      "Visor"
+     ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
+     "bucket": "excluded",
+     "reasons": [
+      "SALE PENDING"
+     ],
+     "distance": null,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       79990
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED5TA102709"
+    },
+    {
+     "source": "Visor",
+     "via": "Visor.vin",
+     "vin": "7G2CEHED3TA096425",
+     "year": 2026,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "All-Wheel Drive",
+     "price": 80990,
+     "price_with_fees": 80990,
+     "miles": 2344,
+     "city": "Carvana (ships to you)",
+     "state": "",
+     "lat": null,
+     "lng": null,
+     "seller": "Carvana",
+     "seller_type": "dealer",
+     "title": "clean",
+     "url": "https://www.carvana.com/vehicle/4899671",
+     "alt_url": "https://visor.vin/search/listings/7G2CEHED3TA096425",
+     "color": null,
+     "days_on_market": 11,
+     "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/21/215bf333a607d34be151c5012f194ca68dc14e3d975c61df73209d182bcfc7dd.01a1e133-5d84-7a15-9ec5-29e6e2b9b7a6.jpg",
+     "notes": "Prior use: personal.",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "sale_status": "sold",
+     "sale_status_evidence": "Visor.vin: manual check 2026-11-26 08:24: no longer available",
+     "also_on": [],
+     "sources": [
+      "Visor"
+     ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
+     "bucket": "excluded",
+     "reasons": [
+      "SOLD"
+     ],
+     "distance": null,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       80990
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED3TA096425"
+    },
+    {
+     "source": "Visor",
+     "via": "Visor.vin",
+     "vin": "7G2CEHED2TA103087",
+     "year": 2026,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "All-Wheel Drive",
+     "price": 81990,
+     "price_with_fees": 81990,
+     "miles": 1793,
+     "city": "Carvana (ships to you)",
+     "state": "",
+     "lat": null,
+     "lng": null,
+     "seller": "Carvana",
+     "seller_type": "dealer",
+     "title": "clean",
+     "url": "https://www.carvana.com/vehicle/4912705",
+     "alt_url": "https://visor.vin/search/listings/7G2CEHED2TA103087",
+     "color": null,
+     "days_on_market": 9,
+     "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/f4/f4316644809cf64ca0be8271c25e7ca513a12e07165dc4c140a17e66e129241a.01a21705-8136-7717-ba89-e30a33f5434e.jpg",
+     "notes": "Prior use: personal.",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "sale_status": "pending",
+     "sale_status_evidence": "Visor.vin: manual check 2026-11-26 08:24: Purchase in progress - another customer started purchasing",
+     "also_on": [],
+     "sources": [
+      "Visor"
+     ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
+     "bucket": "excluded",
+     "reasons": [
+      "SALE PENDING"
+     ],
+     "distance": null,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       81990
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED2TA103087"
+    },
+    {
+     "source": "Visor",
+     "via": "Visor.vin",
+     "vin": "7G2CEHED5TA100295",
+     "year": 2026,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "All-Wheel Drive",
+     "price": 81990,
+     "price_with_fees": 81990,
+     "miles": 4790,
+     "city": "Carvana (ships to you)",
+     "state": "",
+     "lat": null,
+     "lng": null,
+     "seller": "Carvana",
+     "seller_type": "dealer",
+     "title": "clean",
+     "url": "https://www.carvana.com/vehicle/4919465",
+     "alt_url": "https://visor.vin/search/listings/7G2CEHED5TA100295",
+     "color": null,
+     "days_on_market": 7,
+     "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/bb/bb8431ce15dead53588c535541e326e549a610215378baeca5b74053c113e61a.01a1f70d-0830-7386-841c-02a890e0e153.jpg",
+     "notes": "Prior use: personal.",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "sale_status": "pending",
+     "sale_status_evidence": "Visor.vin: manual check 2026-11-26 08:24: Purchase in progress - another customer started purchasing",
+     "also_on": [],
+     "sources": [
+      "Visor"
+     ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
+     "bucket": "excluded",
+     "reasons": [
+      "SALE PENDING"
+     ],
+     "distance": null,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       81990
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED5TA100295"
+    },
+    {
+     "source": "Visor",
+     "via": "Visor.vin",
+     "vin": "7G2CEHED3TA102868",
+     "year": 2026,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "All-Wheel Drive",
+     "price": 82590,
+     "price_with_fees": 82590,
+     "miles": 543,
+     "city": "Carvana (ships to you)",
+     "state": "",
+     "lat": null,
+     "lng": null,
+     "seller": "Carvana",
+     "seller_type": "dealer",
+     "title": "clean",
+     "url": "https://www.carvana.com/vehicle/4924818",
+     "alt_url": "https://visor.vin/search/listings/7G2CEHED3TA102868",
+     "color": null,
+     "days_on_market": 8,
+     "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/a3/a3e8109c3401eef40c247d6abfa786ac183b5614a4b4d2157e2c5743617e29b9.01a200fa-4b44-7de4-9bc0-6b4be7a59b05.jpg",
+     "notes": "Prior use: unknown.",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "sale_status": "pending",
+     "sale_status_evidence": "Visor.vin: manual check 2026-11-26 08:24: Purchase in progress - another customer started purchasing",
+     "also_on": [],
+     "sources": [
+      "Visor"
+     ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
+     "bucket": "excluded",
+     "reasons": [
+      "SALE PENDING"
+     ],
+     "distance": null,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       82590
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED3TA102868"
+    },
+    {
+     "source": "Visor",
+     "via": "Visor.vin",
+     "vin": "7G2CEHED5TA103892",
+     "year": 2026,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "All-Wheel Drive",
+     "price": 83990,
+     "price_with_fees": 83990,
+     "miles": 80,
+     "city": "Carvana (ships to you)",
+     "state": "",
+     "lat": null,
+     "lng": null,
+     "seller": "Carvana",
+     "seller_type": "dealer",
+     "title": "clean",
+     "url": "https://www.carvana.com/vehicle/4924484",
+     "alt_url": "https://visor.vin/search/listings/7G2CEHED5TA103892",
+     "color": null,
+     "days_on_market": 2,
+     "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/c2/c2f706994dcc1aacf5155566c6196a7237df6651ddc272c6318f432ec1ec9ef5.01a20fba-24d4-760b-b170-a796b470e570.jpg",
+     "notes": "Prior use: personal.",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "sale_status": "pending",
+     "sale_status_evidence": "Visor.vin: manual check 2026-11-26 08:24: Purchase in progress - another customer started purchasing",
+     "also_on": [],
+     "sources": [
+      "Visor"
+     ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
+     "bucket": "excluded",
+     "reasons": [
+      "SALE PENDING"
+     ],
+     "distance": null,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       83990
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED5TA103892"
     },
     {
      "source": "Visor",
@@ -2055,6 +2260,7 @@
      "color": "Stainless Steel",
      "days_on_market": 17,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/7e/7e0d738405c54105c28b7ddb35bb088f5b8545d0eeebf6c20192eceef0194385.01a1c4b6-9429-7a92-b2c2-5e6c93e74814.webp",
      "notes": "Prior use: personal.",
      "drivetrain": "AWD",
      "variant": "Cyberbeast (tri motor)",
@@ -2062,6 +2268,11 @@
      "zip": "08638",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -2073,6 +2284,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "bucket": "excluded",
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
@@ -2112,6 +2325,7 @@
      "color": "Stainless Steel",
      "days_on_market": 7,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/60/60597686a46e02807658f65723ec43162009eb3d1ba733e6b5eb5d9f9be9f80a.01a1fba7-9e95-7fed-ac43-21e0a270635d.webp",
      "notes": "Prior use: unknown.",
      "drivetrain": "AWD",
      "variant": "Cyberbeast (tri motor)",
@@ -2130,6 +2344,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
      "bucket": "excluded",
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
@@ -2169,6 +2385,7 @@
      "color": "Stainless Steel",
      "days_on_market": 7,
      "condition": "used",
+     "photo": "https://photos.visor.vin/listing-photos/originals/0a/0ad4109cd218e3d8192d5c3565c1cfdc78568cabb9b0680982caa00ff586ae73.01a20cd4-3beb-71d7-9dc5-529730def703.webp",
      "notes": "Prior use: unknown.",
      "drivetrain": "AWD",
      "variant": "Cyberbeast (tri motor)",
@@ -2176,6 +2393,11 @@
      "zip": "08638",
      "drive_stated": "All Wheel Drive",
      "availability": "http://schema.org/InStock",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "also_on": [
       {
        "source": "AutoTrader",
@@ -2187,6 +2409,8 @@
       "AutoTrader",
       "Visor"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "bucket": "excluded",
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
@@ -2226,6 +2450,7 @@
      "color": null,
      "days_on_market": 0,
      "condition": "used",
+     "photo": null,
      "notes": "No price shown (call for price). Prior use: personal.",
      "drivetrain": "AWD",
      "variant": "Cyberbeast (tri motor)",
@@ -2234,6 +2459,8 @@
      "sources": [
       "Visor"
      ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
      "bucket": "excluded",
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
@@ -2265,6 +2492,12 @@
      "url": "https://www.autotrader.com/cars-for-sale/vehicle/797013162",
      "color": "Silver",
      "notes": "",
+     "photo": "https://assets.cai-media-management.com/ps-vehicle-media/1e0c66e5-15f1-40e8-826c-a9684c440590.jpg",
+     "history_flags": [
+      "NO_SALVAGE_TITLE",
+      "NO_ACCIDENTS_REPORTED",
+      "ONE_OWNER"
+     ],
      "drivetrain": "AWD",
      "variant": "Cyberbeast (tri motor)",
      "drive_basis": "VIN-confirmed",
@@ -2272,6 +2505,8 @@
      "sources": [
       "AutoTrader"
      ],
+     "history_bad": null,
+     "history": "clean (vehicle-history preview: no accidents, no salvage)",
      "bucket": "excluded",
      "reasons": [
       "'cyberbeast' in trim/drivetrain"
@@ -2306,6 +2541,7 @@
      "url": "https://www.carmax.com/car/70312377",
      "color": "Silver",
      "sale_status": "pending",
+     "photo": "https://img2.carmax.com/assets/70312377/hero.jpg?width=800",
      "sale_status_evidence": "CarMax: CarMax data: isReserved=True, badge='On hold'",
      "notes": "Free shipping",
      "drivetrain": "AWD",
@@ -2315,6 +2551,8 @@
      "sources": [
       "CarMax"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -2352,6 +2590,7 @@
      "url": "https://www.carmax.com/car/70236227",
      "color": "Silver",
      "sale_status": "pending",
+     "photo": "https://img2.carmax.com/assets/70236227/hero.jpg?width=800",
      "sale_status_evidence": "CarMax: CarMax data: isReserved=True, badge='On hold'",
      "notes": "Free shipping",
      "drivetrain": "AWD",
@@ -2361,6 +2600,8 @@
      "sources": [
       "CarMax"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -2397,6 +2638,7 @@
      "url": "https://www.carmax.com/car/70048791",
      "color": "Silver",
      "sale_status": "pending",
+     "photo": "https://img2.carmax.com/assets/70048791/hero.jpg?width=800",
      "sale_status_evidence": "CarMax: CarMax data: isReserved=True, badge='On hold'",
      "notes": "Murrieta",
      "drivetrain": "RWD",
@@ -2406,6 +2648,8 @@
      "sources": [
       "CarMax"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "'rwd' in trim/drivetrain",
@@ -2442,6 +2686,7 @@
      "url": "https://www.carmax.com/car/70276252",
      "color": "Gray",
      "sale_status": "pending",
+     "photo": "https://img2.carmax.com/assets/70276252/hero.jpg?width=800",
      "sale_status_evidence": "CarMax: CarMax data: isReserved=True, badge='On hold'",
      "notes": "Salt Lake (South Jordan)",
      "drivetrain": "AWD",
@@ -2451,6 +2696,8 @@
      "sources": [
       "CarMax"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "20,130 mi > 10,000",
@@ -2486,6 +2733,7 @@
      "url": "https://www.carmax.com/car/70300385",
      "color": "Gray",
      "sale_status": "pending",
+     "photo": "https://img2.carmax.com/assets/70300385/hero.jpg?width=800",
      "sale_status_evidence": "CarMax: CarMax data: isReserved=True, badge='On hold'",
      "notes": "$649 shipping",
      "drivetrain": "AWD",
@@ -2495,6 +2743,8 @@
      "sources": [
       "CarMax"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "SALE PENDING"
@@ -2529,6 +2779,7 @@
      "url": "https://www.carmax.com/car/29174320",
      "color": "Gray",
      "sale_status": "pending",
+     "photo": "https://img2.carmax.com/assets/29174320/hero.jpg?width=800",
      "sale_status_evidence": "CarMax: CarMax data: isReserved=True, badge='On hold'",
      "notes": "$1,999 shipping",
      "drivetrain": "AWD",
@@ -2538,6 +2789,8 @@
      "sources": [
       "CarMax"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -2575,6 +2828,7 @@
      "url": "https://www.carmax.com/car/28872581",
      "color": "Silver",
      "sale_status": "pending",
+     "photo": "https://img2.carmax.com/assets/28872581/hero.jpg?width=800",
      "sale_status_evidence": "CarMax: CarMax data: isReserved=True, badge='On hold'",
      "notes": "$1,999 shipping",
      "drivetrain": "AWD",
@@ -2584,6 +2838,8 @@
      "sources": [
       "CarMax"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -2620,6 +2876,7 @@
      "url": "https://www.carmax.com/car/70363575",
      "color": "Silver",
      "sale_status": "pending",
+     "photo": "https://img2.carmax.com/assets/70363575/hero.jpg?width=800",
      "sale_status_evidence": "CarMax: CarMax data: isReserved=True, badge='On hold'",
      "notes": "$1,999 shipping",
      "drivetrain": "AWD",
@@ -2629,6 +2886,8 @@
      "sources": [
       "CarMax"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -2668,6 +2927,7 @@
      "seller_type": "dealer",
      "url": "https://www.dupontregistry.com/car/tesla/cybertruck/2025/7G2CEHEE7SA077223/652968",
      "notes": "",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-652968/photo/2025-tesla-cybertruck-139788-1895621232.webp",
      "drivetrain": "AWD",
      "variant": "Cyberbeast (tri motor)",
      "drive_basis": "VIN-confirmed",
@@ -2675,6 +2935,8 @@
      "sources": [
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "23,303 mi > 10,000",
@@ -2712,6 +2974,7 @@
      "seller_type": "dealer",
      "url": "https://www.dupontregistry.com/car/tesla/cybertruck/2026/7G2CEHED9TA094596/653031",
      "notes": "",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-577122/photo/2019-porsche-911--gt3--rs-0-296712612.webp",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -2719,6 +2982,8 @@
      "sources": [
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "20,928 mi > 10,000"
@@ -2755,6 +3020,7 @@
      "seller_type": "dealer",
      "url": "https://www.dupontregistry.com/car/tesla/cybertruck/2024/7G2CEHED2RA055146/652964",
      "notes": "",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-577122/photo/2019-porsche-911--gt3--rs-0-296712612.webp",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -2762,6 +3028,8 @@
      "sources": [
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -2799,6 +3067,7 @@
      "seller_type": "dealer",
      "url": "https://www.dupontregistry.com/car/tesla/cybertruck/2024/7G2CEHED4RA007714/652973",
      "notes": "",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-652973/photo/2024-tesla-cybertruck-119788-1314434547.webp",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -2806,6 +3075,8 @@
      "sources": [
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -2843,6 +3114,7 @@
      "seller_type": "dealer",
      "url": "https://www.dupontregistry.com/car/tesla/cybertruck/2026/7G2CEHED9TA087650/652998",
      "notes": "",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-577122/photo/2019-porsche-911--gt3--rs-0-296712612.webp",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -2850,6 +3122,8 @@
      "sources": [
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "14,018 mi > 10,000"
@@ -2886,6 +3160,7 @@
      "seller_type": "dealer",
      "url": "https://www.dupontregistry.com/car/tesla/cybertruck/2024/7G2CEHED4RA048487/652617",
      "notes": "",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-577122/photo/2019-porsche-911--gt3--rs-0-296712612.webp",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -2893,6 +3168,8 @@
      "sources": [
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -2930,6 +3207,7 @@
      "seller_type": "dealer",
      "url": "https://www.dupontregistry.com/car/tesla/cybertruck/2024/7G2CEHEDXRA050583/652686",
      "notes": "",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-577122/photo/2019-porsche-911--gt3--rs-0-296712612.webp",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -2937,6 +3215,8 @@
      "sources": [
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -2974,6 +3254,7 @@
      "seller_type": "dealer",
      "url": "https://www.dupontregistry.com/car/tesla/cybertruck/2024/7G2CEHED5RA025980/654905",
      "notes": "",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-654905/photo/2024-tesla-cybertruck-86995-1383789692.webp",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -2981,6 +3262,8 @@
      "sources": [
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -3018,6 +3301,7 @@
      "seller_type": "dealer",
      "url": "https://www.dupontregistry.com/car/tesla/cybertruck/2024/7G2CEHED1RA005743/654792",
      "notes": "No price shown (call for price).",
+     "photo": "https://d2ujs0u2ekt0bo.cloudfront.net/cache/width_1920/car/car-577122/photo/2019-porsche-911--gt3--rs-0-296712612.webp",
      "drivetrain": "AWD",
      "variant": "Dual Motor AWD",
      "drive_basis": "VIN-confirmed",
@@ -3025,6 +3309,8 @@
      "sources": [
       "duPont Registry"
      ],
+     "history_bad": null,
+     "history": "history unverified",
      "bucket": "excluded",
      "reasons": [
       "year 2024 < 2025",
@@ -3036,6 +3322,75 @@
      "price_history": [],
      "price_drop": 0,
      "key": "VIN:7G2CEHED1RA005743"
+    },
+    {
+     "source": "Craigslist",
+     "via": "Craigslist (portland)",
+     "vin": "7G2CEHED6SA059240",
+     "year": 2025,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "2025 Tesla Cybertruck AWD All Wheel Drive Electric  Pickup 4D 6 ft Pickup",
+     "price": 69999,
+     "miles": 9501,
+     "city": "Camas",
+     "state": "WA",
+     "lat": 45.58845,
+     "lng": -122.3875,
+     "seller": null,
+     "seller_type": "dealer",
+     "title": "rebuilt",
+     "drive_stated": "4wd",
+     "url": "https://www.craigslist.org/view/d/camas-2025-tesla-cybertruck-awd-all/_llYhdDY8RGA-5CP44vy8Q",
+     "sale_status": "active",
+     "sale_status_evidence": "from private drop file",
+     "notes": "Craigslist location field: \"Free Shipping 300 Miles!\". (360) 207-6511 Riverside Auto Sales Inc STOCK #: CR059240 CALL : (360) 207-6511 \ud83d\udcde CLICK THE LINK BELOW FOR MORE INFORMATION: https://atmxi.com/CL-Vxrk ???? 2025 TESLA CYBERTRUCK AWD ONLY 9,501 MILES! ????? FUTURISTIC DESIGN | ALL-WHEEL DRIVE | LOW MILES | INCREDIBLE DEAL! ??? 2025 Tesla Cybertruck All-Wheel Drive Pickup 4D 6 FT BED?? ONLY 9,501 MILES!?? ALL-WHEEL DRIVE (AWD)!?? RUNS AND DRIVES LIKE NEW!?? BRANDED TITLE PRICED ACCORDINGLY!?? TURN HEADS EVERYWHERE YOU GO!This Cybertruck combines T Also listed at $65,199 on Facebook Marketplace.",
+     "photo": "https://images.craigslist.org/00G0G_6gdHS62hHvl_0jm0ew_600x450.jpg",
+     "drivetrain": "AWD",
+     "variant": "Dual Motor AWD",
+     "drive_basis": "VIN-confirmed",
+     "search_id": "cybertruck-awd",
+     "date_found": "2026-11-26",
+     "drop_file": "private_listings.csv",
+     "drop_mtime": "2026-11-26 08:24 PT",
+     "also_on": [
+      {
+       "source": "Facebook Marketplace",
+       "url": "https://www.facebook.com/marketplace/item/1776479901155432/",
+       "price": 65199
+      },
+      {
+       "source": "Facebook Marketplace",
+       "url": "https://www.facebook.com/marketplace/item/29069089279442903/",
+       "price": 69999
+      },
+      {
+       "source": "Facebook Marketplace",
+       "url": "https://www.facebook.com/marketplace/item/1474753567888315/",
+       "price": 69999
+      }
+     ],
+     "sources": [
+      "Craigslist",
+      "Facebook Marketplace"
+     ],
+     "history_bad": "branded title: rebuilt",
+     "history": "branded title",
+     "bucket": "excluded",
+     "reasons": [
+      "ACCIDENT/BRANDED: branded title: rebuilt"
+     ],
+     "distance": 904,
+     "first_seen": "2026-11-26 08:17 PT",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:17 PT",
+       69999
+      ]
+     ],
+     "price_drop": 0,
+     "key": "VIN:7G2CEHED6SA059240"
     },
     {
      "source": "Craigslist",
@@ -3059,6 +3414,7 @@
      "sale_status": null,
      "sale_status_evidence": "",
      "notes": "TITLE: 2026 Tesla Cybertruck Dual Motor AWD \u2013 BRAND NEW, 0 Miles \u2013 $85,000 (Seller on Maui, Truck Arriving Oahu) PRICE: $85,000 SELLER LOCATION: Kahului, Maui, HI TRUCK LOCATION: Arriving on Oahu, first week of January 2027 VEHICLE DETAILS - Year: 2026 - Make/Model: Tesla Cybertruck - Trim: Dual Motor All-Wheel Drive (AWD) - Color: [COLOR / FINISH] - Mileage: 0 - VIN: Available to serious buyers on request CONDITION Brand new and never registered. The truck is currently in transit from Tesla and",
+     "photo": "https://images.craigslist.org/00q0q_br53QFGPIKn_0yI0s8_600x450.jpg",
      "drivetrain": "RWD",
      "variant": null,
      "drive_basis": "seller-stated",
@@ -3066,6 +3422,8 @@
      "sources": [
       "Craigslist"
      ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
      "bucket": "excluded",
      "reasons": [
       "'rwd' in trim/drivetrain",
@@ -3082,6 +3440,56 @@
      ],
      "price_drop": 0,
      "key": "URL:https://www.craigslist.org/view/d/waipahu-brand-new-2026-tesla-cybertruck/f6Fy1taVP8JUkMZERNEcR1"
+    },
+    {
+     "search_id": "cybertruck-awd",
+     "source": "eBay Motors",
+     "via": "eBay Motors",
+     "url": "https://www.ebay.com/itm/327476861653",
+     "year": 2024,
+     "make": "Tesla",
+     "model": "Cybertruck",
+     "trim": "Base",
+     "drive_stated": "AWD",
+     "photo": null,
+     "price": 94450,
+     "miles": 33801,
+     "city": "Greensboro",
+     "state": "NC",
+     "seller_type": "dealer",
+     "title": "clean",
+     "vin": null,
+     "sale_status": "active",
+     "sale_status_evidence": "from private drop file",
+     "date_found": "2026-11-26",
+     "notes": "fails year/miles",
+     "drop_file": "private_listings.csv",
+     "drop_mtime": "2026-11-26 08:24 PT",
+     "drivetrain": "AWD",
+     "variant": null,
+     "drive_basis": "seller-stated",
+     "also_on": [],
+     "sources": [
+      "eBay Motors"
+     ],
+     "history_bad": null,
+     "history": "title clean; accident history unverified",
+     "bucket": "excluded",
+     "reasons": [
+      "year 2024 < 2025",
+      "33,801 mi > 10,000"
+     ],
+     "distance": 2128,
+     "first_seen": "2026-11-26",
+     "is_new": false,
+     "price_history": [
+      [
+       "2026-11-26 08:27 PT",
+       94450
+      ]
+     ],
+     "price_drop": 0,
+     "key": "URL:https://www.ebay.com/itm/327476861653"
     }
    ],
    "sources": [
@@ -3091,8 +3499,8 @@
      "status": "listings found",
      "count": 30,
      "note": "2025: 7 of 7; 2026: 23 of 23",
-     "checked": "2026-11-26 08:13 PT",
-     "matches": 24
+     "checked": "2026-11-26 08:25 PT",
+     "matches": 15
     },
     {
      "source": "AutoTrader",
@@ -3100,8 +3508,8 @@
      "status": "listings found",
      "count": 25,
      "note": "25 of 35 matches; live request refused (challenge page); used copy fetched Nov 26 07:59 AM PT; page 2: challenge page (rate-limited)",
-     "checked": "2026-11-26 08:09 PT",
-     "matches": 20
+     "checked": "2026-11-26 08:25 PT",
+     "matches": 19
     },
     {
      "source": "CarMax",
@@ -3109,7 +3517,7 @@
      "status": "listings found",
      "count": 8,
      "note": "8 on page before filters; live request refused (HTTP 403 (bot protection)); used copy fetched Nov 26 07:59 AM PT",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3118,7 +3526,7 @@
      "status": "listings found",
      "count": 11,
      "note": "11 on page before filters",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 2
     },
     {
@@ -3126,8 +3534,8 @@
      "url": "https://bringatrailer.com/tesla/cybertruck/",
      "status": "no results",
      "count": 0,
-     "note": "no live auctions for this model",
-     "checked": "2026-11-26 08:09 PT",
+     "note": "no live auctions for this model; 21 past results saved as sold comps",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3136,7 +3544,7 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 406 (bot protection)",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3145,7 +3553,7 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 403 (bot protection)",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3154,7 +3562,7 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 403 (bot protection)",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3163,7 +3571,7 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 404. Carvana units still show up through Visor (link goes to carvana.com). Carvana pending/cart status cannot be read from this network (403), so those rows are marked \"status unverified\".",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3172,7 +3580,7 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 403 (bot protection)",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3181,7 +3589,7 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 403 (bot protection)",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3190,7 +3598,7 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 403 (bot protection)",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3199,34 +3607,50 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 404",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
      "source": "eBay Motors",
      "url": "https://www.ebay.com/sch/i.html?_nkw=Tesla+Cybertruck&_sacat=6001",
-     "status": "blocked",
-     "count": 0,
-     "note": "HTTP 403 (bot protection)",
-     "checked": "2026-11-26 08:09 PT",
+     "status": "browser pass 2026-11-26 08:24",
+     "count": 2,
+     "note": "checked nationwide. Automatic fetch: HTTP 403 (bot protection). 4 Cybertrucks; none meet the filters",
+     "checked": "2026-11-26 08:24",
+     "coverage": {
+      "done": [
+       "nationwide"
+      ],
+      "failed": [],
+      "pending": [],
+      "total": 1
+     },
      "matches": 0
     },
     {
      "source": "Tesla used inventory",
      "url": "https://www.tesla.com/inventory/used/ct",
-     "status": "needs browser",
+     "status": "browser pass needed",
      "count": 0,
      "note": "JavaScript shell; inventory API returns 403.",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
      "source": "Cars & Bids",
      "url": "https://carsandbids.com/search?q=Tesla+Cybertruck",
-     "status": "needs browser",
+     "status": "browser pass 2026-11-26 08:24",
      "count": 0,
-     "note": "JavaScript-only app; needs a browser.",
-     "checked": "2026-11-26 08:09 PT",
+     "note": "checked nationwide. Automatic fetch: JavaScript-only app; needs a browser.. 0 live auctions",
+     "checked": "2026-11-26 08:24",
+     "coverage": {
+      "done": [
+       "nationwide"
+      ],
+      "failed": [],
+      "pending": [],
+      "total": 1
+     },
      "matches": 0
     },
     {
@@ -3235,7 +3659,7 @@
      "status": "no data in page",
      "count": 0,
      "note": "Page loaded but listings render with JavaScript; needs a browser.",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3244,7 +3668,7 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 403 (bot protection)",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3253,25 +3677,25 @@
      "status": "blocked",
      "count": 0,
      "note": "HTTP 404",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
      "source": "AutoTempest (meta-search)",
      "url": "https://www.autotempest.com/results?make=tesla&model=cybertruck&zip=92009&radius=any&minyear=2025&maxyear=2026&maxmiles=10000",
-     "status": "needs browser",
+     "status": "browser pass needed",
      "count": 0,
      "note": "Results come from a signed per-request API token; not forged here. Open the link in a browser.",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
      "source": "Autolist",
      "url": "https://www.autolist.com/listings#make=Tesla&model=Cybertruck",
-     "status": "needs browser",
+     "status": "browser pass needed",
      "count": 0,
      "note": "Results load by JavaScript; needs a browser.",
-     "checked": "2026-11-26 08:09 PT",
+     "checked": "2026-11-26 08:25 PT",
      "matches": 0
     },
     {
@@ -3280,46 +3704,113 @@
      "status": "listings found",
      "count": 2,
      "note": "45/45 metros reachable; 2 matching posts",
-     "checked": "2026-11-26 08:16 PT",
-     "matches": 1
+     "checked": "2026-11-26 08:28 PT",
+     "matches": 0
+    },
+    {
+     "source": "KSL Cars",
+     "url": "https://cars.ksl.com/search/make/Tesla/model/Cybertruck",
+     "status": "browser pass needed",
+     "count": 0,
+     "note": "HTTP 403 (bot protection)",
+     "checked": "2026-11-26 08:25 PT",
+     "matches": 0
+    },
+    {
+     "source": "PrivateAuto",
+     "url": "https://privateauto.com/",
+     "status": "browser pass needed",
+     "count": 0,
+     "note": "Search results load by JavaScript; needs a browser.",
+     "checked": "2026-11-26 08:25 PT",
+     "matches": 0
     },
     {
      "source": "Facebook Marketplace",
      "url": "https://www.facebook.com/marketplace/category/vehicles",
-     "status": "browser drop",
-     "count": 5,
-     "note": "Needs a signed-in/real browser. Rows merged from private_drop/private_listings.csv",
-     "checked": "2026-11-26 08:12 PT",
-     "matches": 3
+     "status": "browser pass 2026-11-26",
+     "count": 9,
+     "note": "15/21 locations checked; failed: lasvegas; not yet: minneapolis, kansascity, nashville, charlotte, detroit. 16-metro browser pass (500 mi); page would not load",
+     "checked": "2026-11-26",
+     "coverage": {
+      "done": [
+       "atlanta",
+       "austin",
+       "boston",
+       "chicago",
+       "dallas",
+       "denver",
+       "houston",
+       "la",
+       "miami",
+       "nyc",
+       "phoenix",
+       "portland",
+       "saltlakecity",
+       "sanfrancisco",
+       "seattle"
+      ],
+      "failed": [
+       "lasvegas"
+      ],
+      "pending": [
+       "minneapolis",
+       "kansascity",
+       "nashville",
+       "charlotte",
+       "detroit"
+      ],
+      "total": 21
+     },
+     "matches": 2
     },
     {
      "source": "OfferUp",
      "url": "https://offerup.com/explore/k/cars-trucks",
-     "status": "awaiting browser drop",
+     "status": "browser pass 2026-11-26 08:24",
      "count": 0,
-     "note": "Needs a real browser; add rows to private_drop/private_listings.csv",
-     "checked": "",
+     "note": "1/8 locations checked; not yet: Los Angeles, CA, Dallas, TX, Miami, FL, Chicago, IL, New York, NY, Seattle, WA, Phoenix, AZ, Atlanta, GA. no Cybertruck vehicles found; metro picker not done yet",
+     "checked": "2026-11-26 08:24",
+     "coverage": {
+      "done": [
+       "Carlsbad CA (default location)"
+      ],
+      "failed": [],
+      "pending": [
+       "Los Angeles, CA",
+       "Dallas, TX",
+       "Miami, FL",
+       "Chicago, IL",
+       "New York, NY",
+       "Seattle, WA",
+       "Phoenix, AZ",
+       "Atlanta, GA"
+      ],
+      "total": 8
+     },
      "matches": 0
     }
    ],
    "summary": {
-    "matches": 37,
+    "matches": 27,
     "maybes": 2,
-    "excluded": 25,
-    "pending_excluded": 8,
+    "excluded": 36,
+    "pending_excluded": 16,
+    "history_excluded": 2,
+    "history_unverified": 10,
     "new": 0,
     "price_drops": 0,
     "cheapest": {
-     "key": "VIN:7G2CEHED6SA059240",
+     "key": "VIN:7G2CEHED5SA066986",
      "year": 2025,
-     "trim": "2025 Tesla Cybertruck AWD All Wheel Drive Electric  Pickup 4D 6 ft Pickup",
-     "price": 69999,
-     "miles": 9501,
-     "city": "Camas",
-     "state": "WA",
-     "url": "https://www.craigslist.org/view/d/camas-2025-tesla-cybertruck-awd-all/_llYhdDY8RGA-5CP44vy8Q",
-     "source": "Craigslist",
-     "distance": 904
+     "trim": "All-Wheel Drive",
+     "price": 85485,
+     "miles": 5551,
+     "city": "Lutz",
+     "state": "FL",
+     "url": "https://www.autonationusa.com/cars/7g2cehed5sa066986/tesla-cybertruck-2025",
+     "source": "Visor",
+     "distance": 2091
     },
     "lowest_miles": {
      "key": "VIN:7G2CEHED8TA105751",
@@ -3346,14 +3837,27 @@
      "distance": 235
     },
     "by_source": {
-     "Visor": 24,
-     "AutoTrader": 20,
-     "Facebook Marketplace": 3,
-     "duPont Registry": 2,
-     "Craigslist": 1
+     "Visor": 15,
+     "AutoTrader": 19,
+     "Facebook Marketplace": 2,
+     "duPont Registry": 2
     },
-    "raw_rows": 81
-   }
+    "raw_rows": 87
+   },
+   "comps": [
+    {
+     "search_id": "cybertruck-awd",
+     "source": "Cars & Bids",
+     "url": "https://carsandbids.com/auctions/rkqo8zV4/2026-tesla-cybertruck-premium",
+     "year": 2026,
+     "trim": "Premium AWD",
+     "price": 94500,
+     "miles": null,
+     "result": "sold",
+     "date": "11/20/2026",
+     "notes": "from 11/26 browser pass"
+    }
+   ]
   }
  ]
 }

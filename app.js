@@ -119,6 +119,10 @@ const statusTag = r => {
   return `<span class="tag ${cls}" title="${esc(r.sale_status_evidence || '')}">${lab}</span>`;
 };
 const loc = r => [r.city, r.state].filter(Boolean).join(', ');
+const histTag = r => { const h = r.history || 'history unverified';
+  return h.startsWith('clean') ? `<span class="tag t-clean" title="${esc(h)}">Clean history</span>` :
+    r.history_bad ? `<span class="tag t-hist" title="${esc(r.history_bad)}">${esc(h)}</span>` :
+    `<span class="tag t-unv" title="${esc(h)}">${h.startsWith('title clean') ? 'Clean title · accidents unverified' : 'History unverified'}</span>`; };
 const srcHtml = r => `${esc(r.via || r.source)}${(r.also_on || []).length ? '<div class="small">also: ' + r.also_on.map(a => link(a.url, a.source + (a.price ? ' ' + money(a.price) : ''))).join(', ') + '</div>' : ''}`;
 const driveHtml = r => `${esc(r.variant || r.drivetrain || '?')}<div class="small">${esc(r.drive_basis === 'VIN-confirmed' ? 'confirmed by VIN' : r.drive_basis === 'seller-stated' ? 'seller-stated' : 'not stated')}</div>`;
 const LIST_COLS = [
@@ -127,6 +131,7 @@ const LIST_COLS = [
       (r.is_new ? '<span class="tag t-new">NEW</span>' : '') + (r.price_drop ? `<span class="tag t-drop">▼ ${money(r.price_drop)}</span>` : '') +
       (r.bucket === 'maybe' ? `<span class="tag t-maybe" title="${esc((r.reasons || []).join('; '))}">MAYBE</span>` : '') },
   { k: 'status', label: 'Sale status', w: 120, get: r => r.sale_status || 'unverified', html: statusTag },
+  { k: 'history', label: 'History', w: 150, get: r => r.history, html: histTag },
   { k: 'source', label: 'Source', w: 150, get: r => r.via || r.source, html: srcHtml },
   { k: 'year', label: 'Year', w: 60, num: true },
   { k: 'trim', label: 'Trim (as listed)', w: 170, get: r => r.trim },
@@ -145,7 +150,7 @@ const LIST_COLS = [
 ];
 const EX_COLS = [
   { k: 'search', label: 'Search', w: 150, get: r => r._search },
-  { k: 'reasons', label: 'Why excluded', w: 230, get: r => (r.reasons || []).join('; '), html: r => (r.reasons || []).map(x => `<span class="tag ${/PENDING|SOLD|removed/.test(x) ? 't-pend' : 't-unv'}">${esc(x)}</span>`).join('') },
+  { k: 'reasons', label: 'Why excluded', w: 230, get: r => (r.reasons || []).join('; '), html: r => (r.reasons || []).map(x => `<span class="tag ${/PENDING|SOLD|removed|ACCIDENT|suspect/.test(x) ? 't-pend' : 't-unv'}">${esc(x)}</span>`).join('') },
   { k: 'source', label: 'Source', w: 140, get: r => r.via || r.source, html: srcHtml },
   { k: 'year', label: 'Year', w: 60, num: true },
   { k: 'trim', label: 'Trim', w: 150 },
@@ -154,8 +159,20 @@ const EX_COLS = [
   { k: 'miles', label: 'Miles', w: 80, num: true, html: r => mi(r.miles) },
   { k: 'loc', label: 'Location', w: 140, get: loc, html: r => esc(loc(r)) },
   { k: 'status', label: 'Sale status', w: 120, get: r => r.sale_status || '', html: r => r.sale_status ? statusTag(r) : '' },
+  { k: 'history', label: 'History', w: 140, get: r => r.history, html: histTag },
   { k: 'link', label: 'Listing', w: 70, get: r => r.url, html: r => link(r.url, 'Open') },
   { k: 'notes', label: 'Notes', w: 240, html: r => `<div class="clamp small">${esc((r.sale_status_evidence ? '[' + r.sale_status_evidence + '] ' : '') + (r.notes || ''))}</div>` },
+];
+const COMP_COLS = [
+  { k: 'source', label: 'Site', w: 130 },
+  { k: 'result', label: 'Result', w: 110 },
+  { k: 'date', label: 'Date', w: 95, get: r => { const m = String(r.date || '').match(/(\d+)\/(\d+)\/(\d+)/); return m ? +m[3] * 1e4 + +m[1] * 100 + +m[2] : r.date; }, html: r => esc(r.date) },
+  { k: 'year', label: 'Year', w: 60, num: true },
+  { k: 'title', label: 'Vehicle', w: 300, get: r => r.title || r.trim, html: r => esc(r.title || [r.year, r.trim].filter(Boolean).join(' ')) },
+  { k: 'price', label: 'Price', w: 100, num: true, html: r => money(r.price) },
+  { k: 'miles', label: 'Miles', w: 80, num: true, html: r => mi(r.miles) },
+  { k: 'link', label: 'Link', w: 70, get: r => r.url, html: r => link(r.url, 'Open') },
+  { k: 'notes', label: 'Notes', w: 200, html: r => `<span class="small">${esc(r.notes || '')}</span>` },
 ];
 const SRC_COLS = [
   { k: 'search', label: 'Search', w: 150, get: r => r._search },
@@ -207,7 +224,7 @@ function wireCards() {
 
 // ---------------- page ----------------
 function searchesFor() { return cur === '__all' ? DATA.searches : DATA.searches.filter(s => s.config.id === cur); }
-function tag(rows, s) { return rows.map(r => Object.assign(r, { _search: s.config.name })); }
+function tag(rows, s) { return rows.map(r => Object.assign(r, { _search: s.config.name, _cfg: s.config })); }
 function renderTabs() {
   const tabs = DATA.searches.map(s => ({ id: s.config.id, name: s.config.name, n: s.summary.matches }));
   if (DATA.searches.length > 1 || true) tabs.push({ id: '__all', name: 'All searches', n: DATA.searches.reduce((a, s) => a + s.summary.matches, 0) });
@@ -244,25 +261,98 @@ function renderCards(ss) {
     card('closest', 'Closest to home', cl ? mi(cl.distance) + ' mi' : '—', cl ? money(cl.price) + ' · ' + desc(cl) : '') +
     card('new', 'New since last run', sum('new'), `${sum('price_drops')} price drops`) +
     card('pending', 'Removed as pending/sold', sum('pending_excluded'), 'on hold, sale pending, sold or deleted') +
+    card('history', 'Removed: accident / branded title', sum('history_excluded'), `${sum('history_unverified')} remaining matches have unverified history`) +
     card('bysource', 'Matches by source', Object.keys(bySrc).length, Object.entries(bySrc).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${esc(k)}: ${v}`).join('<br>'));
   wireCards();
 }
+const mkOf = r => r.make || (r._cfg || {}).make || '';
+const mdOf = r => r.model || (r._cfg || {}).model || '';
+const trimOf = r => r.variant || r.trim || 'Not stated';
+const driveOf = r => r.drivetrain || 'Not stated';
+const srcOf = r => r.source;
+const sellOf = r => r.seller_type || 'unknown';
+function allRows(ss) { return ss.flatMap(s => s.listings.map(r => Object.assign(r, { _search: s.config.name, _cfg: s.config }))); }
+let FILT = LS.get('filters', {});
+function checksFor(id, rows, fn) {
+  const el = $('#' + id); const counts = {};
+  rows.forEach(r => { const v = fn(r); counts[v] = (counts[v] || 0) + 1; });
+  const sel = FILT[id] || [];
+  el.innerHTML = Object.keys(counts).sort().map(v => `<label class="chk"><input type="checkbox" value="${esc(v)}" ${sel.includes(v) ? 'checked' : ''}> ${esc(v)}<span class="cnt">${counts[v]}</span></label>`).join('') || '<span class="small">—</span>';
+  el.querySelectorAll('input').forEach(i => i.onchange = () => { FILT[id] = [...el.querySelectorAll('input:checked')].map(x => x.value); LS.set('filters', FILT); refreshList(); });
+}
+function selFor(id, vals, anyLabel) {
+  const el = $('#' + id); const cur = FILT[id] || '';
+  el.innerHTML = `<option value="">${anyLabel}</option>` + vals.map(v => `<option ${String(v) === String(cur) ? 'selected' : ''}>${esc(v)}</option>`).join('');
+  el.onchange = () => { FILT[id] = el.value; LS.set('filters', FILT); refreshList(); };
+}
+function buildSidebar(ss) {
+  const rows = allRows(ss);
+  const uniq = f => [...new Set(rows.map(f).filter(Boolean))].sort();
+  selFor('fMake', uniq(mkOf), 'All makes'); selFor('fModel', uniq(mdOf), 'All models');
+  const yrs = uniq(r => r.year).map(Number).sort((a, b) => a - b);
+  selFor('fYearMin', yrs, 'Min'); selFor('fYearMax', yrs, 'Max');
+  checksFor('fTrim', rows, trimOf); checksFor('fDrive', rows, driveOf); checksFor('fSource', rows, srcOf); checksFor('fSeller', rows, sellOf);
+  ['fPriceMin', 'fPriceMax', 'fMiles', 'fDist'].forEach(id => { const el = $('#' + id); el.value = FILT[id] || ''; el.oninput = el.onchange = () => { FILT[id] = el.value; LS.set('filters', FILT); refreshList(); }; });
+}
 function listRows(ss) {
   const q = $('#q').value.trim().toLowerCase();
-  const sm = $('#showMaybe').checked, no = $('#newOnly').checked, hu = $('#hideUnverified').checked;
-  return ss.flatMap(s => tag(s.listings, s)).filter(r => (sm || r.bucket === 'match') && (!no || r.is_new) &&
-    (!hu || ['active'].includes(r.sale_status)) &&
+  const sm = $('#showMaybe').checked, no = $('#newOnly').checked, hu = $('#hideUnverified').checked, co = $('#cleanOnly').checked, dr = $('#dropOnly').checked;
+  const F = FILT, inSet = (id, v) => !(F[id] || []).length || F[id].includes(v), n = id => F[id] ? Number(F[id]) : null;
+  return allRows(ss).filter(r => (sm || r.bucket === 'match') && (!no || r.is_new) && (!dr || r.price_drop) &&
+    (!hu || r.sale_status === 'active') && (!co || (r.history || '').startsWith('clean')) &&
+    (!F.fMake || mkOf(r) === F.fMake) && (!F.fModel || mdOf(r) === F.fModel) &&
+    (!n('fYearMin') || (r.year || 0) >= n('fYearMin')) && (!n('fYearMax') || (r.year || 9999) <= n('fYearMax')) &&
+    (!n('fPriceMin') || (r.price || 0) >= n('fPriceMin')) && (!n('fPriceMax') || (r.price != null && r.price <= n('fPriceMax'))) &&
+    (!n('fMiles') || (r.miles != null && r.miles <= n('fMiles'))) && (!n('fDist') || (r.distance != null && r.distance <= n('fDist'))) &&
+    inSet('fTrim', trimOf(r)) && inSet('fDrive', driveOf(r)) && inSet('fSource', srcOf(r)) && inSet('fSeller', sellOf(r)) &&
     (!q || JSON.stringify([r.city, r.state, r.seller, r.trim, r.notes, r.via, r.vin, r.variant, r.year]).toLowerCase().includes(q)));
+}
+// card view
+const SORTS = {
+  newest: [(a, b) => cmp(b.first_seen, a.first_seen) || cmp(a.price, b.price)],
+  price_asc: [(a, b) => cmp(a.price, b.price)], price_desc: [(a, b) => (b.price == null) - (a.price == null) || (b.price || 0) - (a.price || 0)],
+  miles_asc: [(a, b) => cmp(a.miles, b.miles)], dist_asc: [(a, b) => cmp(a.distance, b.distance)], year_desc: [(a, b) => cmp(b.year, a.year) || cmp(a.price, b.price)],
+};
+const SORT_TO_TABLE = { newest: [{ k: 'first_seen', dir: 'desc' }], price_asc: [{ k: 'price', dir: 'asc' }], price_desc: [{ k: 'price', dir: 'desc' }],
+  miles_asc: [{ k: 'miles', dir: 'asc' }], dist_asc: [{ k: 'distance', dir: 'asc' }], year_desc: [{ k: 'year', dir: 'desc' }] };
+function cardHtml(r) {
+  const title = `${r.year || ''} ${mkOf(r)} ${mdOf(r)}`.trim();
+  const ph = r.photo ? `<img src="${esc(r.photo)}" loading="lazy" referrerpolicy="no-referrer" alt="${esc(title)}" onerror="this.remove()">` : '<span>No photo from source</span>';
+  const ov = (r.is_new ? '<span class="tag t-new">NEW</span>' : '') + (r.price_drop ? `<span class="tag t-drop">▼ ${money(r.price_drop)}</span>` : '') +
+    (r.bucket === 'maybe' ? `<span class="tag t-maybe" title="${esc((r.reasons || []).join('; '))}">MAYBE</span>` : '');
+  const srcs = [r.via || r.source].concat((r.also_on || []).map(a => a.source)).filter((v, i, x) => x.indexOf(v) === i);
+  return `<article class="lc">
+    <a class="ph" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${ph}<div class="ov">${ov}</div></a>
+    <div class="bd">
+      <div class="ttl">${esc(title)}</div>
+      <div class="trim">${esc(r.variant || r.trim || '')}${r.drive_basis === 'VIN-confirmed' ? ' · VIN-confirmed' : r.drivetrain ? ' · ' + esc(r.drivetrain) + ' (seller-stated)' : ''}</div>
+      <div class="price">${r.price ? money(r.price) : '<span class="small">Call for price</span>'}</div>
+      <div class="meta">${r.miles != null ? mi(r.miles) + ' mi' : 'Miles not shown'}${r.title ? ' · ' + esc(r.title) + ' title' : ''}</div>
+      <div class="loc">📍 ${esc(loc(r) || 'Location not shown')}${r.distance != null ? ` · ${mi(r.distance)} mi away` : ''}</div>
+      <div class="badges">${srcs.map(s => `<span class="tag src">${esc(s)}</span>`).join('')}${statusTag(r)}${histTag(r)}</div>
+      ${(r.notes || r.reasons && r.reasons.length) ? `<div class="clamp small">${esc((r.bucket === 'maybe' ? 'Maybe: ' + r.reasons.join('; ') + '. ' : '') + (r.notes || ''))}</div>` : ''}
+    </div>
+    <div class="ft"><span class="small">${esc(r.seller || '')}${r.seller_type ? ' · ' + esc(r.seller_type) : ''}<br>First seen ${esc(r.first_seen || '')}</span><a class="go" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">View listing</a></div>
+  </article>`;
+}
+let VIEW = LS.get('view', 'cards');
+function refreshList() {
+  const ss = searchesFor(); const lr = listRows(ss);
+  $('#nList').textContent = lr.length;
+  const s = $('#sortSel').value; LS.set('sortSel', s);
+  $('#cardView').hidden = VIEW !== 'cards'; $('#tableView').hidden = VIEW !== 'table';
+  $('#viewCards').classList.toggle('on', VIEW === 'cards'); $('#viewTable').classList.toggle('on', VIEW === 'table');
+  if (VIEW === 'cards') $('#cardView').innerHTML = lr.slice().sort((a, b) => { for (const f of SORTS[s]) { const x = f(a, b); if (x) return x; } return 0; }).map(cardHtml).join('') || '<p class="small">No listings match these filters.</p>';
+  else { TABLES.list.render(lr); renderSortBar(); }
 }
 function renderAll() {
   renderTabs();
   const ss = searchesFor();
   $('#criteria').innerHTML = cur === '__all' ? `Showing every saved search together (${ss.length}).` : critText(ss[0].config);
   const showSearchCol = cur === '__all';
-  [TABLES.list, TABLES.ex, TABLES.src].forEach(t => { t.cols.find(c => c.k === 'search').hidden = !showSearchCol; });
   ['list', 'ex', 'src'].forEach(id => { const t = TABLES[id]; t.order = t.order.filter(k => k !== 'search'); if (showSearchCol) t.order.unshift('search'); });
-  renderCards(ss);
-  const lr = listRows(ss); TABLES.list.render(lr); $('#nList').textContent = lr.length;
+  renderCards(ss); buildSidebar(ss); refreshList();
+  const cp = ss.flatMap(s => s.comps || []); TABLES.comps.render(cp); $('#nComps').textContent = cp.length;
   const ex = ss.flatMap(s => tag(s.excluded, s)); TABLES.ex.render(ex); $('#nEx').textContent = ex.length;
   const sr = ss.flatMap(s => s.sources.map(x => Object.assign({}, x, { _search: s.config.name }))); TABLES.src.render(sr); $('#nSrc').textContent = sr.length;
   renderSortBar();
@@ -297,9 +387,14 @@ async function init() {
   const v = Date.now();
   [DATA, CFG] = await Promise.all([fetch('data/data.json?v=' + v).then(r => r.json()), fetch('data/searches.json?v=' + v).then(r => r.json())]);
   $('#asof').textContent = `Last refresh ${DATA.generated} · distances from ${DATA.home}`;
-  makeTable('list', $('#tList'), LIST_COLS); makeTable('ex', $('#tEx'), EX_COLS); makeTable('src', $('#tSrc'), SRC_COLS);
+  makeTable('list', $('#tList'), LIST_COLS); makeTable('ex', $('#tEx'), EX_COLS); makeTable('src', $('#tSrc'), SRC_COLS); makeTable('comps', $('#tComps'), COMP_COLS);
+  $('#sortSel').value = LS.get('sortSel', 'price_asc');
+  $('#sortSel').onchange = () => { TABLES.list.sorts = SORT_TO_TABLE[$('#sortSel').value].slice(); TABLES.list.saveSort(); refreshList(); };
+  $('#viewCards').onclick = () => { VIEW = 'cards'; LS.set('view', VIEW); refreshList(); };
+  $('#viewTable').onclick = () => { VIEW = 'table'; LS.set('view', VIEW); refreshList(); };
+  $('#clearFilters').onclick = () => { FILT = {}; LS.set('filters', FILT); ['showMaybe'].forEach(i => $('#' + i).checked = true); ['newOnly', 'dropOnly', 'cleanOnly', 'hideUnverified'].forEach(i => $('#' + i).checked = false); $('#q').value = ''; buildSidebar(searchesFor()); refreshList(); };
   if (!LS.get('sort.list', null)) { TABLES.list.sorts = [{ k: 'price', dir: 'asc' }]; }
-  ['q', 'showMaybe', 'newOnly', 'hideUnverified'].forEach(id => $('#' + id).addEventListener('input', () => { const ss = searchesFor(); const lr = listRows(ss); TABLES.list.render(lr); $('#nList').textContent = lr.length; }));
+  ['q', 'showMaybe', 'newOnly', 'hideUnverified', 'cleanOnly', 'dropOnly'].forEach(id => $('#' + id).addEventListener('input', refreshList));
   $('#modeMulti').onclick = () => { sortMode = 'multi'; LS.set('sortMode', sortMode); renderSortBar(); };
   $('#modeSingle').onclick = () => { sortMode = 'single'; LS.set('sortMode', sortMode); Object.values(TABLES).forEach(t => { t.sorts = t.sorts.slice(0, 1); t.saveSort(); renderTable(t); }); renderSortBar(); };
   $('#clearSorts').onclick = () => { Object.values(TABLES).forEach(t => { t.sorts = []; t.saveSort(); renderTable(t); }); renderSortBar(); };

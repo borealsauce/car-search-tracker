@@ -34,7 +34,51 @@
         "cybertruck",
         "cyber truck"
       ],
-      "slugs": {}
+      "slugs": {},
+      "private_grid": null,
+      "notes": "min_price = suspect-price floor: anything listed below it is treated as a placeholder/deposit/scam and excluded."
     }
-  ]
+  ],
+  "private_grid": {
+    "facebook": {
+      "radius_miles": 500,
+      "metros": [
+        "la",
+        "sanfrancisco",
+        "seattle",
+        "portland",
+        "saltlakecity",
+        "phoenix",
+        "denver",
+        "dallas",
+        "houston",
+        "austin",
+        "chicago",
+        "atlanta",
+        "miami",
+        "nyc",
+        "boston",
+        "minneapolis",
+        "kansascity",
+        "nashville",
+        "charlotte",
+        "detroit",
+        "lasvegas"
+      ],
+      "notes": "lasvegas slug failed to load in the 11/26 browser pass; phoenix + la (500 mi) cover Las Vegas. minneapolis, kansascity, nashville, charlotte, detroit fill Midwest/Southeast gaps."
+    },
+    "offerup": {
+      "radius_miles": 500,
+      "locations": [
+        "Los Angeles, CA",
+        "Dallas, TX",
+        "Miami, FL",
+        "Chicago, IL",
+        "New York, NY",
+        "Seattle, WA",
+        "Phoenix, AZ",
+        "Atlanta, GA"
+      ]
+    }
+  }
 }

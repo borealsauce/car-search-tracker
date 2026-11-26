@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Car Search Tracker</title>
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 <header class="top">
@@ -25,21 +25,66 @@
   <section class="box" data-box="summary"><h2>Summary</h2><div class="cards" id="cards"></div></section>
 
   <section class="box" data-box="listings">
-    <h2>Listings <span class="n" id="nList"></span></h2>
-    <div class="toolbar">
-      <input type="search" id="q" placeholder="Filter by city, seller, trim, notes…">
-      <label class="chk"><input type="checkbox" id="showMaybe" checked> Show maybes</label>
-      <label class="chk"><input type="checkbox" id="newOnly"> New only</label>
-      <label class="chk"><input type="checkbox" id="hideUnverified"> Hide status-unverified</label>
-      <span class="spacer"></span>
-      <span class="sortmode" id="sortMode"></span>
-      <button class="btn" id="modeMulti">Multi-sort</button>
-      <button class="btn" id="modeSingle">Single sort</button>
-      <button class="btn ghost" id="clearSorts">Clear sorts</button>
-      <button class="btn ghost" id="exportCsv">Export CSV</button>
+    <h2>Listings</h2>
+    <div class="srp">
+      <aside class="side" id="side">
+        <div class="side-head"><b>Filters</b><button class="link-btn" id="clearFilters">Clear all</button></div>
+        <div class="fgroup"><label>Make</label><select id="fMake"></select></div>
+        <div class="fgroup"><label>Model</label><select id="fModel"></select></div>
+        <div class="fgroup"><label>Year</label><div class="pair"><select id="fYearMin"></select><span>to</span><select id="fYearMax"></select></div></div>
+        <div class="fgroup"><label>Price</label><div class="pair"><input id="fPriceMin" type="number" placeholder="Min $"><span>to</span><input id="fPriceMax" type="number" placeholder="Max $"></div></div>
+        <div class="fgroup"><label>Mileage</label><select id="fMiles"><option value="">Any</option><option>1000</option><option>2500</option><option>5000</option><option>7500</option><option>10000</option><option>15000</option><option>25000</option><option>50000</option></select></div>
+        <div class="fgroup"><label>Distance from 92009</label><select id="fDist"><option value="">Nationwide</option><option>100</option><option>250</option><option>500</option><option>1000</option><option>1500</option><option>2000</option></select></div>
+        <div class="fgroup"><label>Trim</label><div class="checks" id="fTrim"></div></div>
+        <div class="fgroup"><label>Drivetrain</label><div class="checks" id="fDrive"></div></div>
+        <div class="fgroup"><label>Source</label><div class="checks" id="fSource"></div></div>
+        <div class="fgroup"><label>Seller type</label><div class="checks" id="fSeller"></div></div>
+        <div class="fgroup"><label>More</label><div class="checks">
+          <label class="chk"><input type="checkbox" id="showMaybe" checked> Include maybes</label>
+          <label class="chk"><input type="checkbox" id="newOnly"> New since last run</label>
+          <label class="chk"><input type="checkbox" id="dropOnly"> Price drops only</label>
+          <label class="chk"><input type="checkbox" id="cleanOnly"> Verified clean history only</label>
+          <label class="chk"><input type="checkbox" id="hideUnverified"> Hide sale-status unverified</label>
+        </div></div>
+        <input type="search" id="q" placeholder="Keyword: city, seller, VIN…">
+      </aside>
+      <div class="results">
+        <div class="resbar">
+          <div class="rescount"><b id="nList">0</b> results</div>
+          <div class="resctl">
+            <label class="sortlab">Sort by
+              <select id="sortSel">
+                <option value="newest">Newest listed</option>
+                <option value="price_asc">Price: low to high</option>
+                <option value="price_desc">Price: high to low</option>
+                <option value="miles_asc">Mileage: lowest</option>
+                <option value="dist_asc">Distance: nearest</option>
+                <option value="year_desc">Year: newest</option>
+              </select>
+            </label>
+            <span class="seg"><button class="btn" id="viewCards">Cards</button><button class="btn" id="viewTable">Table</button></span>
+          </div>
+        </div>
+        <div id="cardView" class="grid"></div>
+        <div id="tableView" hidden>
+          <div class="toolbar">
+            <span class="sortmode" id="sortMode"></span><span class="spacer"></span>
+            <button class="btn" id="modeMulti">Multi-sort</button>
+            <button class="btn" id="modeSingle">Single sort</button>
+            <button class="btn ghost" id="clearSorts">Clear sorts</button>
+            <button class="btn ghost" id="exportCsv">Export CSV</button>
+          </div>
+          <div class="sortbar" id="sortBar"></div>
+          <div class="tablewrap"><table id="tList"></table></div>
+        </div>
+      </div>
     </div>
-    <div class="sortbar" id="sortBar"></div>
-    <div class="tablewrap"><table id="tList"></table></div>
+  </section>
+
+  <section class="box" data-box="comps">
+    <h2>Recent sold / ended auctions <span class="n" id="nComps"></span></h2>
+    <p class="hint">Price comps from auction sites (Bring a Trailer, Cars &amp; Bids). Not for sale.</p>
+    <div class="tablewrap"><table id="tComps"></table></div>
   </section>
 
   <section class="box" data-box="sources">
@@ -50,7 +95,7 @@
 
   <section class="box" data-box="excluded">
     <h2>Excluded <span class="n" id="nEx"></span></h2>
-    <p class="hint">Everything the sites returned that failed a filter, including listings marked sale pending, on hold, sold or removed.</p>
+    <p class="hint">Everything the sites returned that failed a filter: sale pending, on hold, sold, removed, accident or damage reported, branded titles (salvage, rebuilt, flood, lemon), suspect prices, wrong trim, year or miles.</p>
     <div class="tablewrap"><table id="tEx"></table></div>
   </section>
 
@@ -81,6 +126,6 @@
     <p class="hint">Add the entry to <code>searches.json</code> in the tracker folder (or download the full file with it included), then run <code>./refresh.sh</code>. It shows up as a new tab here.</p>
   </section>
 </main>
-<script src="app.js?v=1"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>
